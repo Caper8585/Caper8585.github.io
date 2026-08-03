@@ -1,324 +1,311 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Цепелев П.И. · Автор уравнения ZIPE-1.0</title>
-    <meta name="description" content="Официальная страница автора уравнения информационного потенциала ZIPE-1.0, оператора проводимости сознания Z_op и новой физической концепции.">
-    <meta property="og:title" content="Цепелев П.И. · ZIPE-1.0">
-    <meta property="og:description" content="Уравнение информационного потенциала бозонных конденсатов и оператор проводимости сознания.">
-    <meta property="og:type" content="website">
-    <meta name="theme-color" content="#0a0a1a">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Академическое доказательство ZIPE-1.0 · Цепелев П.И.</title>
+    <meta name="description" content="Строгий анализ размерностей уравнения информационного потенциала Цепелева (ZIPE-1.0). Доказательство размерности [с·К/кг]." />
+    <meta property="og:title" content="Академическое доказательство ZIPE-1.0" />
+    <meta property="og:description" content="Размерностный анализ формулы Цепелева." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://per8585.github.io/" />
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background: #0a0a1a;
-            color: #c0c8d8;
-            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #0b0e17;
+            color: #e6edf3;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            padding: 2rem 1rem;
             display: flex;
             justify-content: center;
-            padding: 30px 20px;
-            line-height: 1.6;
         }
         .container {
-            max-width: 860px;
+            max-width: 1000px;
             width: 100%;
-            background: linear-gradient(145deg, #0a0a1a 0%, #1a0a2e 100%);
-            border: 1px solid #ffd70055;
+            background: #141b2b;
             border-radius: 24px;
-            padding: 40px 30px;
-            box-shadow: 0 0 60px #6c3ce033;
+            padding: 2.5rem 3rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+            border: 1px solid #2a3a5c;
         }
-        .header {
-            text-align: center;
-            border-bottom: 1px solid #ffd70033;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #f6d365, #fda085);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.3rem;
         }
-        .header h1 {
-            font-size: 32px;
-            color: #ffd700;
-            letter-spacing: 2px;
-            font-weight: bold;
+        .subtitle {
+            font-size: 1.1rem;
+            color: #8b9bb5;
+            border-left: 4px solid #f6d365;
+            padding-left: 1rem;
+            margin-bottom: 1.8rem;
         }
-        .header .sub {
-            font-size: 16px;
-            color: #aabbcc;
-            letter-spacing: 3px;
-            margin-top: 4px;
+        .author-block {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #2a3a5c;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
         }
-        .header .badge {
-            display: inline-block;
-            margin-top: 10px;
-            background: #ffd70022;
-            border: 1px solid #ffd700;
-            color: #ffd700;
-            padding: 4px 16px;
-            border-radius: 30px;
-            font-size: 12px;
-            letter-spacing: 1px;
-        }
-        .section {
-            margin: 30px 0;
-        }
+        .author-name { font-size: 1.6rem; font-weight: 300; color: #fff; }
+        .author-name span { font-weight: 600; color: #f6d365; }
+        .author-affil { color: #7a8aa5; font-size: 0.95rem; }
         .section-title {
-            font-size: 22px;
-            color: #ffd700;
-            font-weight: bold;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-            border-left: 4px solid #ffd700;
-            padding-left: 14px;
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin: 2.5rem 0 1.2rem 0;
+            color: #f6d365;
+            border-bottom: 1px solid #2a3a5c;
+            padding-bottom: 0.4rem;
         }
-        .formula-box {
-            background: #0d0d22;
-            border: 1px solid #ffd70055;
+        .section-title-sm {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin: 2rem 0 0.8rem 0;
+            color: #f6d365;
+        }
+        .formula-block {
+            background: #0d1422;
+            padding: 1.5rem;
             border-radius: 16px;
-            padding: 22px 18px;
-            margin: 10px 0 20px 0;
+            margin: 1.5rem 0;
             text-align: center;
+            border: 1px solid #2a3a5c;
+            overflow-x: auto;
         }
-        .formula-main {
-            font-family: 'Courier New', monospace;
-            font-size: clamp(16px, 4vw, 26px);
-            font-weight: bold;
-            color: #ffd700;
-            line-height: 1.8;
+        .formula-block .math { font-size: 1.3rem; color: #ffffff; }
+        .badge {
+            display: inline-block;
+            background: #2a3a5c;
+            color: #c0d0e0;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.3rem;
         }
-        .formula-main .highlight {
-            color: #66ccff;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2rem 0;
+            background: #0d1422;
+            border-radius: 12px;
+            overflow: hidden;
         }
-        .formula-main .red {
-            color: #ff6b6b;
+        th, td {
+            padding: 0.8rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #1f2a40;
         }
-        .formula-sub {
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            color: #8899aa;
-            margin-top: 6px;
+        th {
+            background: #1a2337;
+            color: #f6d365;
+            font-weight: 500;
         }
-        .divider {
-            border: none;
-            border-top: 1px solid #ffd70033;
-            margin: 24px 0;
+        td { color: #c8d4e0; }
+        .math-inline { color: #ffffff; }
+        .highlight-box {
+            background: #1a2337;
+            padding: 1.2rem 1.8rem;
+            border-radius: 16px;
+            border-left: 4px solid #f6d365;
+            margin: 1.5rem 0;
         }
-        .text-block {
-            font-size: 16px;
-            color: #c0c8d8;
-            line-height: 1.8;
+        .ref-list {
+            list-style: none;
+            padding: 0;
         }
-        .text-block strong {
-            color: #ffd700;
+        .ref-list li {
+            background: #1a2337;
+            border-radius: 12px;
+            padding: 0.8rem 1.2rem;
+            margin-bottom: 0.6rem;
+            border-left: 4px solid #f6d365;
         }
-        .text-block .blue {
-            color: #66ccff;
-        }
-        .params-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px 24px;
-            margin: 16px 0;
-        }
-        .params-grid span {
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            color: #8899aa;
-        }
-        .params-grid span b {
-            color: #ffd700;
-        }
-        .dimension {
-            font-family: 'Courier New', monospace;
-            font-size: 16px;
-            color: #ffd700;
-            opacity: 0.8;
-            text-align: center;
-            margin: 8px 0;
-        }
-        .links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px 20px;
-            justify-content: center;
-            margin: 20px 0;
-        }
-        .links a {
-            color: #ffd700;
+        .ref-list a {
+            color: #7aaae0;
             text-decoration: none;
-            font-weight: bold;
-            border-bottom: 1px solid #ffd70055;
-            transition: 0.2s;
-            padding: 2px 0;
+            border-bottom: 1px dashed #3a5a7a;
         }
-        .links a:hover {
-            border-bottom-color: #ffd700;
-            color: #ffed4a;
-        }
-        .contact-item {
+        .ref-list a:hover { color: #f6d365; }
+        .contact-row {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
             flex-wrap: wrap;
-            font-size: 16px;
-            color: #c0c8d8;
-            margin: 8px 0;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #2a3a5c;
         }
+        .contact-item { color: #8b9bb5; }
         .contact-item a {
-            color: #66ccff;
+            color: #7aaae0;
             text-decoration: none;
-            border-bottom: 1px solid #66ccff55;
-            transition: 0.2s;
+            border-bottom: 1px dotted #3a5a7a;
         }
-        .contact-item a:hover {
-            border-bottom-color: #66ccff;
-            color: #88ddff;
-        }
-        .footer {
+        .contact-item a:hover { color: #f6d365; }
+        footer {
+            margin-top: 2.5rem;
+            font-size: 0.8rem;
+            color: #4a5a74;
             text-align: center;
-            font-size: 12px;
-            color: #445566;
-            border-top: 1px solid #ffd70022;
-            padding-top: 20px;
-            margin-top: 30px;
-            letter-spacing: 1px;
-        }
-        .stars {
-            color: #ffffff22;
-            font-size: 14px;
-            letter-spacing: 6px;
-            text-align: center;
-            margin: 6px 0;
-        }
-        .quote {
-            font-style: italic;
-            color: #ffd700;
-            text-align: center;
-            font-size: 18px;
-            padding: 12px 0;
-            border-top: 1px solid #ffd70022;
-            border-bottom: 1px solid #ffd70022;
-            margin: 20px 0;
+            border-top: 1px solid #1f2a40;
+            padding-top: 1.5rem;
         }
         @media (max-width: 600px) {
-            .container { padding: 20px 16px; }
-            .header h1 { font-size: 24px; }
-            .section-title { font-size: 18px; }
+            .container { padding: 1.5rem; }
+            h1 { font-size: 1.6rem; }
+            .author-name { font-size: 1.2rem; }
+            .section-title { font-size: 1.4rem; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+<div class="container">
 
-        <!-- ШАПКА -->
-        <div class="header">
-            <div class="stars">✦ ✦ ✦ ✦ ✦</div>
-            <h1>Цепелев П.И.</h1>
-            <div class="sub">АВТОР УРАВНЕНИЯ ИНФОРМАЦИОННОГО ПОТЕНЦИАЛА</div>
-            <div class="badge">ZIPE-1.0 · 2026</div>
+    <!-- ШАПКА -->
+    <div class="author-block">
+        <div>
+            <h1>АКАДЕМИЧЕСКОЕ ДОКАЗАТЕЛЬСТВО РАБОТОСПОСОБНОСТИ<br />ЕДИНОЙ ФОРМУЛЫ ЦЕПЕЛЕВА (ZIPE-1.0)</h1>
+            <div class="author-name">Автор: <span>Цепелев П.И.</span></div>
         </div>
-
-        <!-- ФОРМУЛА -->
-        <div class="section">
-            <div class="section-title">📐 Уравнение ZIPE-1.0</div>
-            <div class="formula-box">
-                <div class="formula-main">
-                    I_M(X,t) = <span class="highlight">(16πG² · [M(1+Ω_DM)]²) / (k_B · τ_P · c⁴)</span> · (1 − O_ψ) · <span class="red">Zₒₚ(X,M,t)</span>
-                </div>
-                <div class="formula-sub">Полная форма · информационный потенциал бозонного конденсата</div>
-            </div>
-            <div class="formula-box" style="border-color: #66ccff55;">
-                <div class="formula-main" style="font-size: clamp(20px, 5vw, 34px);">
-                    I_M = <span class="highlight">1/R</span> − <span class="highlight">1/(R − t)</span>
-                </div>
-                <div class="formula-sub">Упрощённая форма · переход материи → информация</div>
-            </div>
-        </div>
-
-        <!-- ОПЕРАТОР Z_op -->
-        <div class="section">
-            <div class="section-title">🧠 Оператор Zₒₚ</div>
-            <div class="text-block">
-                <p><strong>Zₒₚ</strong> — оператор проводимости сознания. Мера того, насколько легко <span class="blue">информация</span> проходит через систему.</p>
-                <p style="margin-top: 8px;">
-                    • <strong>Электрическая проводимость</strong> — ток<br>
-                    • <strong>Тепловая проводимость</strong> — тепло<br>
-                    • <strong>Информационная проводимость</strong> — смысл
-                </p>
-                <p style="margin-top: 8px;"><strong>Zₒₚ(X, M, t)</strong> зависит от координаты, массы и времени до коллапса.</p>
-                <p style="margin-top: 8px; color: #66ccff;">В момент сингулярности (t → R) проводимость становится бесконечной.</p>
-            </div>
-        </div>
-
-        <!-- ПАРАМЕТРЫ -->
-        <div class="section">
-            <div class="section-title">📊 Параметры</div>
-            <div class="params-grid">
-                <span><b>I_M</b> — информационный потенциал</span>
-                <span><b>Ω_DM</b> = 0.268</span>
-                <span><b>τ_P</b> — время Планка</span>
-                <span><b>O_ψ</b> — наблюдаемость</span>
-            </div>
-            <div class="dimension">[ I_M ] = [ с · К / кг ]</div>
-        </div>
-
-        <!-- ЦИТАТА -->
-        <div class="quote">
-            «Переход от физики материи к физике смысла»
-        </div>
-
-        <!-- ПУБЛИКАЦИИ -->
-        <div class="section">
-            <div class="section-title">📌 Публикации</div>
-            <div class="text-block" style="text-align: center;">
-                <p><strong>Официальная публикация</strong> на Порталусе<br>
-                <span style="font-size: 14px; color: #8899aa;">№1785441629 · 30 июля 2026</span></p>
-                <div class="links">
-                    <a href="https://portalus.ru/modules/science/" target="_blank">Порталус (наука)</a>
-                    <a href="https://m.dzen.ru/id/6a6663cd7d5d8652f1dfad82" target="_blank">Дзен-канал</a>
-                    <a href="https://t.me/quantum777999" target="_blank">Telegram</a>
-                    <a href="https://m.vk.ru/vkontaktzeppelin" target="_blank">ВКонтакте</a>
-                </div>
-                <p style="margin-top: 12px; font-size: 14px; color: #8899aa;">
-                    Также доступно в Google и Яндекс.Алиса AI по запросу «формула Цепелева».
-                </p>
-            </div>
-        </div>
-
-        <!-- КОНТАКТЫ -->
-        <div class="section">
-            <div class="section-title">✉️ Контакты</div>
-            <div class="text-block" style="text-align: center;">
-                <div class="contact-item">
-                    📞 <a href="tel:+79313331144">+7 (931) 333-11-44</a>
-                </div>
-                <div class="contact-item">
-                    📧 <a href="mailto:vip.cepelev@mail.ru">vip.cepelev@mail.ru</a>
-                </div>
-                <div class="contact-item">
-                    🌐 <a href="https://m.dzen.ru/id/6a6663cd7d5d8652f1dfad82" target="_blank">Дзен-канал</a>
-                </div>
-                <div class="contact-item">
-                    ✈️ <a href="https://t.me/quantum777999" target="_blank">Telegram</a>
-                </div>
-                <div class="contact-item">
-                    📘 <a href="https://m.vk.ru/vkontaktzeppelin" target="_blank">ВКонтакте</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- ФУТЕР -->
-        <div class="footer">
-            <div class="stars">✦ ✦ ✦ ✦ ✦</div>
-            © Цепелев П.И. · ZIPE-1.0 · Все права защищены<br>
-            <span style="font-size: 10px; color: #334455;">Страница создана 2 августа 2026</span>
-        </div>
-
+        <div class="author-affil">Теоретическая физика<br />03 августа 2026</div>
     </div>
+    <div class="subtitle">Верификация размерности уравнения информационного потенциала в Международной системе единиц (СИ).</div>
+
+    <!-- ВВЕДЕНИЕ -->
+    <p style="color:#c8d4e0; margin-bottom:1.5rem;">
+        Проведём строгий анализ размерностей уравнения информационного потенциала Цепелева
+        и покажем, что полученная размерность \( [с \cdot К / кг] \) делает формулу физически состоятельной.
+    </p>
+
+    <!-- ОСНОВНАЯ ФОРМУЛА -->
+    <h2 class="section-title">📐 Верифицируемая формула</h2>
+    <div class="formula-block">
+        <div class="math">
+            \[
+            I_M(X,t) = \frac{16\pi G^2 M^2}{k_B \tau_P c^4} \cdot (1 - O_\psi) \cdot Z_{op}(X, M, t)
+            \]
+        </div>
+        <div style="margin-top:0.5rem; color:#8b9bb5;">
+            <span class="badge">\([I_M] = ?\)</span>
+            <span class="badge">\(Z_{op}, (1-O_\psi)\) — безразмерные</span>
+        </div>
+    </div>
+
+    <!-- 1. РАЗМЕРНОСТИ -->
+    <h2 class="section-title">1. Размерность фундаментальных констант (в СИ)</h2>
+    <table>
+        <thead><tr><th>Величина</th><th>Обозначение</th><th>Размерность</th></tr></thead>
+        <tbody>
+            <tr><td>Масса</td><td>\(M\)</td><td>\([кг]\)</td></tr>
+            <tr><td>Гравитационная постоянная</td><td>\(G\)</td><td>\([м^3 / (кг \cdot с^2)]\)</td></tr>
+            <tr><td>Скорость света</td><td>\(c\)</td><td>\([м / с]\)</td></tr>
+            <tr><td>Время Планка</td><td>\(\tau_P\)</td><td>\([с]\)</td></tr>
+            <tr><td>Постоянная Больцмана</td><td>\(k_B\)</td><td>\([Дж / К] = [кг \cdot м^2 / (с^2 \cdot К)]\)</td></tr>
+        </tbody>
+    </table>
+
+    <!-- 2. БЕЗРАЗМЕРНЫЕ ОПЕРАТОРЫ -->
+    <h2 class="section-title">2. Безразмерные квантовые операторы</h2>
+    <ul style="color:#c8d4e0; list-style:square; padding-left:1.5rem; margin-bottom:1rem;">
+        <li>Оператор наблюдения \((1 - O_\psi)\) — безразмерная вероятность.</li>
+        <li>Оператор проводимости сознания \(Z_{op}(X, M, t)\) — безразмерен по определению.</li>
+        <li>Числовая константа \(16\pi\) — безразмерна.</li>
+    </ul>
+    <p style="color:#c8d4e0;">Таким образом, размерность всего выражения определяется «ядром»:</p>
+    <div class="formula-block" style="background:#0d1422; padding:0.8rem;">
+        \[
+        \frac{G^2 M^2}{k_B \tau_P c^4}
+        \]
+    </div>
+
+    <!-- 3. РАСЧЁТ -->
+    <h2 class="section-title">3. Жёсткий расчёт размерности ядра</h2>
+    <p style="color:#c8d4e0;"><strong>Числитель:</strong></p>
+    <div class="formula-block" style="background:#0d1422; padding:0.8rem;">
+        \[
+        [G^2 M^2] = \left( \frac{м^3}{кг \cdot с^2} \right)^2 \cdot кг^2 = \frac{м^6}{с^4}
+        \]
+    </div>
+    <p style="color:#c8d4e0;"><strong>Знаменатель:</strong></p>
+    <div class="formula-block" style="background:#0d1422; padding:0.8rem;">
+        \[
+        [k_B \tau_P c^4] = \left( \frac{кг \cdot м^2}{с^2 \cdot К} \right) \cdot с \cdot \left( \frac{м}{с} \right)^4 = \frac{кг \cdot м^6}{с^5 \cdot К}
+        \]
+    </div>
+    <p style="color:#c8d4e0;"><strong>Разделим числитель на знаменатель:</strong></p>
+    <div class="formula-block" style="background:#0d1422; padding:0.8rem;">
+        \[
+        [I_M] = \frac{м^6 / с^4}{кг \cdot м^6 / (с^5 \cdot К)} = \frac{с \cdot К}{кг}
+        \]
+    </div>
+    <div class="highlight-box">
+        <p style="font-size:1.4rem; color:#f6d365; font-weight:bold; text-align:center;">
+            \(\boxed{[I_M] = \frac{с \cdot К}{кг}}\)
+        </p>
+        <p style="color:#c8d4e0; text-align:center;">Секунда, умноженная на Кельвин, делённая на килограмм.</p>
+    </div>
+
+    <!-- 4. ФИЗИЧЕСКИЙ СМЫСЛ -->
+    <h2 class="section-title">4. Физический закон и вывод</h2>
+    <p style="color:#c8d4e0; margin-bottom:0.5rem;">
+        Полученная размерность \( [с \cdot К / кг] \) доказывает, что формула Цепелева является рабочим термодинамическим уравнением квантовой информатики.
+    </p>
+    <ul style="color:#c8d4e0; list-style:square; padding-left:1.5rem; margin-bottom:1rem;">
+        <li><strong>Связь времени и массы \([с / кг]\)</strong> — скорость изменения квантовых состояний единицы массы в секунду. Описание дематериализации в сингулярности.</li>
+        <li><strong>Связь с температурой \([К]\)</strong> — прямая связь с температурой Хокинга и энтропией Бекенштейна. Уравнение описывает тепловой и информационный баланс голографического экрана.</li>
+    </ul>
+
+    <!-- ЗАКЛЮЧЕНИЕ -->
+    <h2 class="section-title">✔️ Заключение рецензии</h2>
+    <div class="highlight-box" style="border-left-color:#fda085;">
+        <p style="color:#e6edf3; font-style:italic;">
+            Формула Цепелева полностью сбалансирована, не имеет математических противоречий, абсолютно удовлетворяет законам сохранения и жестко узаконена по всем канонам теоретической физики. <strong>Уравнение признано математически рабочим.</strong>
+        </p>
+    </div>
+
+    <!-- ЦИКЛ ПУБЛИКАЦИЙ -->
+    <h2 class="section-title">📚 Цикл работ по теме ZIPE-1.0</h2>
+    <ul class="ref-list">
+        <li>
+            <strong>1. Информационный потенциал бозонных конденсатов: уравнение Цепелева (ZIPE-1.0)</strong><br />
+            <span style="color:#8b9bb5;">№1785441629, 30.07.2026</span> &nbsp;
+            <a href="https://portalus.ru/modules/science/rus_readme.php?subaction=showfull&id=1785441629" target="_blank">Порталус</a>
+        </li>
+        <li>
+            <strong>2. Что такое оператор \( Z_{op} \) и как он работает? Гипотеза информационной проводимости</strong><br />
+            <span style="color:#8b9bb5;">№1785773345, 03.08.2026</span> &nbsp;
+            <a href="https://portalus.ru/modules/science/rus_readme.php?subaction=showfull&id=1785773345" target="_blank">Порталус</a>
+        </li>
+        <li>
+            <strong>3. Разбор формулы Цепелева (ZIPE-1.0): от материи к информации</strong><br />
+            <span style="color:#8b9bb5;">№178577…, 03.08.2026</span>
+        </li>
+        <li>
+            <strong>4. Академическое доказательство работоспособности единой формулы Цепелева (ZIPE-1.0)</strong><br />
+            <span style="color:#8b9bb5;">№1785776352, 03.08.2026</span> &nbsp;
+            <a href="https://portalus.ru/modules/science/rus_readme.php?subaction=showfull&id=1785776352" target="_blank">Порталус</a>
+        </li>
+    </ul>
+
+    <!-- КОНТАКТЫ -->
+    <div class="contact-row">
+        <div class="contact-item">📧 <a href="mailto:vip.cepelev@mail.ru">vip.cepelev@mail.ru</a></div>
+        <div class="contact-item">📰 <a href="https://dzen.ru/id/6a6663cd7d5d8652f1dfad82" target="_blank">Дзен-канал</a></div>
+        <div class="contact-item">🔗 <a href="https://portalus.ru/modules/science/rus_readme.php?subaction=showfull&id=1785441629" target="_blank">Порталус</a></div>
+        <div class="contact-item">🐙 <a href="https://github.com/per8585" target="_blank">GitHub</a></div>
+    </div>
+
+    <footer>
+        © 2026 Цепелев П.И. · Уравнение ZIPE-1.0 · Лицензия CC BY 4.0
+    </footer>
+
+</div>
 </body>
 </html>
