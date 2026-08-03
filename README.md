@@ -1,4 +1,253 @@
-portal.html• <strong>Тепловая проводимость</strong> — тепло<br>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цепелев П.И. · Автор уравнения ZIPE-1.0</title>
+    <meta name="description" content="Официальная страница автора уравнения информационного потенциала ZIPE-1.0, оператора проводимости сознания Z_op и новой физической концепции.">
+    <meta property="og:title" content="Цепелев П.И. · ZIPE-1.0">
+    <meta property="og:description" content="Уравнение информационного потенциала бозонных конденсатов и оператор проводимости сознания.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#0a0a1a">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #0a0a1a;
+            color: #c0c8d8;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            display: flex;
+            justify-content: center;
+            padding: 30px 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 860px;
+            width: 100%;
+            background: linear-gradient(145deg, #0a0a1a 0%, #1a0a2e 100%);
+            border: 1px solid #ffd70055;
+            border-radius: 24px;
+            padding: 40px 30px;
+            box-shadow: 0 0 60px #6c3ce033;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 1px solid #ffd70033;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 32px;
+            color: #ffd700;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+        .header .sub {
+            font-size: 16px;
+            color: #aabbcc;
+            letter-spacing: 3px;
+            margin-top: 4px;
+        }
+        .header .badge {
+            display: inline-block;
+            margin-top: 10px;
+            background: #ffd70022;
+            border: 1px solid #ffd700;
+            color: #ffd700;
+            padding: 4px 16px;
+            border-radius: 30px;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+        .section {
+            margin: 30px 0;
+        }
+        .section-title {
+            font-size: 22px;
+            color: #ffd700;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            border-left: 4px solid #ffd700;
+            padding-left: 14px;
+        }
+        .formula-box {
+            background: #0d0d22;
+            border: 1px solid #ffd70055;
+            border-radius: 16px;
+            padding: 22px 18px;
+            margin: 10px 0 20px 0;
+            text-align: center;
+        }
+        .formula-main {
+            font-family: 'Courier New', monospace;
+            font-size: clamp(16px, 4vw, 26px);
+            font-weight: bold;
+            color: #ffd700;
+            line-height: 1.8;
+        }
+        .formula-main .highlight {
+            color: #66ccff;
+        }
+        .formula-main .red {
+            color: #ff6b6b;
+        }
+        .formula-sub {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #8899aa;
+            margin-top: 6px;
+        }
+        .divider {
+            border: none;
+            border-top: 1px solid #ffd70033;
+            margin: 24px 0;
+        }
+        .text-block {
+            font-size: 16px;
+            color: #c0c8d8;
+            line-height: 1.8;
+        }
+        .text-block strong {
+            color: #ffd700;
+        }
+        .text-block .blue {
+            color: #66ccff;
+        }
+        .params-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px 24px;
+            margin: 16px 0;
+        }
+        .params-grid span {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #8899aa;
+        }
+        .params-grid span b {
+            color: #ffd700;
+        }
+        .dimension {
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            color: #ffd700;
+            opacity: 0.8;
+            text-align: center;
+            margin: 8px 0;
+        }
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 20px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .links a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px solid #ffd70055;
+            transition: 0.2s;
+            padding: 2px 0;
+        }
+        .links a:hover {
+            border-bottom-color: #ffd700;
+            color: #ffed4a;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            font-size: 16px;
+            color: #c0c8d8;
+            margin: 8px 0;
+        }
+        .contact-item a {
+            color: #66ccff;
+            text-decoration: none;
+            border-bottom: 1px solid #66ccff55;
+            transition: 0.2s;
+        }
+        .contact-item a:hover {
+            border-bottom-color: #66ccff;
+            color: #88ddff;
+        }
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #445566;
+            border-top: 1px solid #ffd70022;
+            padding-top: 20px;
+            margin-top: 30px;
+            letter-spacing: 1px;
+        }
+        .stars {
+            color: #ffffff22;
+            font-size: 14px;
+            letter-spacing: 6px;
+            text-align: center;
+            margin: 6px 0;
+        }
+        .quote {
+            font-style: italic;
+            color: #ffd700;
+            text-align: center;
+            font-size: 18px;
+            padding: 12px 0;
+            border-top: 1px solid #ffd70022;
+            border-bottom: 1px solid #ffd70022;
+            margin: 20px 0;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 20px 16px; }
+            .header h1 { font-size: 24px; }
+            .section-title { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- ШАПКА -->
+        <div class="header">
+            <div class="stars">✦ ✦ ✦ ✦ ✦</div>
+            <h1>Цепелев П.И.</h1>
+            <div class="sub">АВТОР УРАВНЕНИЯ ИНФОРМАЦИОННОГО ПОТЕНЦИАЛА</div>
+            <div class="badge">ZIPE-1.0 · 2026</div>
+        </div>
+
+        <!-- ФОРМУЛА -->
+        <div class="section">
+            <div class="section-title">📐 Уравнение ZIPE-1.0</div>
+            <div class="formula-box">
+                <div class="formula-main">
+                    I_M(X,t) = <span class="highlight">(16πG² · [M(1+Ω_DM)]²) / (k_B · τ_P · c⁴)</span> · (1 − O_ψ) · <span class="red">Zₒₚ(X,M,t)</span>
+                </div>
+                <div class="formula-sub">Полная форма · информационный потенциал бозонного конденсата</div>
+            </div>
+            <div class="formula-box" style="border-color: #66ccff55;">
+                <div class="formula-main" style="font-size: clamp(20px, 5vw, 34px);">
+                    I_M = <span class="highlight">1/R</span> − <span class="highlight">1/(R − t)</span>
+                </div>
+                <div class="formula-sub">Упрощённая форма · переход материи → информация</div>
+            </div>
+        </div>
+
+        <!-- ОПЕРАТОР Z_op -->
+        <div class="section">
+            <div class="section-title">🧠 Оператор Zₒₚ</div>
+            <div class="text-block">
+                <p><strong>Zₒₚ</strong> — оператор проводимости сознания. Мера того, насколько легко <span class="blue">информация</span> проходит через систему.</p>
+                <p style="margin-top: 8px;">
+                    • <strong>Электрическая проводимость</strong> — ток<br>
+                    • <strong>Тепловая проводимость</strong> — тепло<br>
                     • <strong>Информационная проводимость</strong> — смысл
                 </p>
                 <p style="margin-top: 8px;"><strong>Zₒₚ(X, M, t)</strong> зависит от координаты, массы и времени до коллапса.</p>
@@ -72,3 +321,4 @@ portal.html• <strong>Тепловая проводимость</strong> — т
 
     </div>
 </body>
+</html>
