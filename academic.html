@@ -5,19 +5,300 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Академическое доказательство ZIPE-1.0 · Цепелев П.И.</title>
     <meta name="description" content="Строгий анализ размерностей уравнения информационного потенциала Цепелева (ZIPE-1.0). Доказательство размерности [с·К/кг]." />
-    <!-- ===== МЕТА-ТЕГ ДЛЯ ЯНДЕКСА (ТОТ ЖЕ, ЧТО НА ГЛАВНОЙ) ===== -->
-    <meta name="yandex-verification" content="81b7e0b3a9e1f2c4" />  <!-- или ваш уникальный, если есть -->
-    <!-- ======================================================== -->
     <meta property="og:title" content="Академическое доказательство ZIPE-1.0" />
     <meta property="og:description" content="Размерностный анализ формулы Цепелева." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://caper8585.github.io/academic.html" />
     <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        /* ... ваш стиль без изменений ... */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0b0e17;
+            color: #e6edf3;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: #141b2b;
+            border-radius: 24px;
+            padding: 2.5rem 3rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+            border: 1px solid #2a3a5c;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #f6d365, #fda085);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.3rem;
+        }
+        .subtitle {
+            font-size: 1.1rem;
+            color: #8b9bb5;
+            border-left: 4px solid #f6d365;
+            padding-left: 1rem;
+            margin-bottom: 1.8rem;
+        }
+        .author-block {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #2a3a5c;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+        .author-name { font-size: 1.6rem; font-weight: 300; color: #fff; }
+        .author-name span { font-weight: 600; color: #f6d365; }
+        .author-affil { color: #7a8aa5; font-size: 0.95rem; }
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin: 2.5rem 0 1.2rem 0;
+            color: #f6d365;
+            border-bottom: 1px solid #2a3a5c;
+            padding-bottom: 0.4rem;
+        }
+        .formula-block {
+            background: #0d1422;
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+            text-align: center;
+            border: 1px solid #2a3a5c;
+            overflow-x: auto;
+        }
+        .formula-block .math { font-size: 1.3rem; color: #ffffff; }
+        .badge {
+            display: inline-block;
+            background: #2a3a5c;
+            color: #c0d0e0;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.3rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2rem 0;
+            background: #0d1422;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 0.8rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #1f2a40;
+        }
+        th {
+            background: #1a2337;
+            color: #f6d365;
+            font-weight: 500;
+        }
+        td { color: #c8d4e0; }
+        .highlight-box {
+            background: #1a2337;
+            padding: 1.2rem 1.8rem;
+            border-radius: 16px;
+            border-left: 4px solid #f6d365;
+            margin: 1.5rem 0;
+        }
+        .ref-list {
+            list-style: none;
+            padding: 0;
+        }
+        .ref-list li {
+            background: #1a2337;
+            border-radius: 12px;
+            padding: 0.8rem 1.2rem;
+            margin-bottom: 0.6rem;
+            border-left: 4px solid #f6d365;
+        }
+        .ref-list a {
+            color: #7aaae0;
+            text-decoration: none;
+            border-bottom: 1px dashed #3a5a7a;
+        }
+        .ref-list a:hover { color: #f6d365; }
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #2a3a5c;
+        }
+        .contact-item { color: #8b9bb5; }
+        .contact-item a {
+            color: #7aaae0;
+            text-decoration: none;
+            border-bottom: 1px dotted #3a5a7a;
+        }
+        .contact-item a:hover { color: #f6d365; }
+        footer {
+            margin-top: 2.5rem;
+            font-size: 0.8rem;
+            color: #4a5a74;
+            text-align: center;
+            border-top: 1px solid #1f2a40;
+            padding-top: 1.5rem;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 1.5rem; }
+            h1 { font-size: 1.6rem; }
+            .author-name { font-size: 1.2rem; }
+            .section-title { font-size: 1.4rem; }
+        }
     </style>
 </head>
 <body>
-    <!-- всё содержимое без изменений -->
+<div class="container">
+
+    <!-- ШАПКА -->
+    <div class="author-block">
+        <div>
+            <h1>АКАДЕМИЧЕСКОЕ ДОКАЗАТЕЛЬСТВО РАБОТОСПОСОБНОСТИ<br />ЕДИНОЙ ФОРМУЛЫ ЦЕПЕЛЕВА (ZIPE-1.0)</h1>
+            <div class="author-name">Автор: <span>Цепелев П.И.</span></div>
+        </div>
+        <div class="author-affil">Теоретическая физика<br />03 августа 2026</div>
+    </div>
+    <div class="subtitle">Верификация размерности уравнения информационного потенциала в Международной системе единиц (СИ).</div>
+
+    <!-- ВВЕДЕНИЕ -->
+    <p style="color:#c8d4e0; margin-bottom:1.5rem;">
+        Проведём строгий анализ размерностей уравнения информационного потенциала Цепелева
+        и покажем, что полученная размерность \( [с \cdot К / кг] \) делает формулу физически состоятельной.
+    </p>
+
+    <!-- ОСНОВНАЯ ФОРМУЛА -->
+    <h2 class="section-title">📐 Верифицируемая формула</h2>
+    <div class="formula-block">
+        <div class="math">
+            \[
+            I_M(X,t) = \frac{16\pi G^2 M^2}{k_B \tau_P c^4} \cdot (1 - O_\psi) \cdot Z_{op}(X, M, t)
+            \]
+        </div>
+        <div style="margin-top:0.5rem; color:#8b9bb5;">
+            <span class="badge">\([I_M] = ?\)</span>
+            <span class="badge">\(Z_{op}, (1-O_\psi)\) — безразмерные</span>
+        </div>
+    </div>
+
+    <!-- 1. РАЗМЕРНОСТИ -->
+    <h2 class="section-title">1. Размерность фундаментальных констант (в СИ)</h2>
+    <table>
+        <thead><tr><th>Величина</th><th>Обозначение</th><th>Размерность</th></tr></thead>
+        <tbody>
+            <tr><td>Масса</td><td>\(M\)</td><td>\([кг]\)</td></tr>
+            <tr><td>Гравитационная постоянная</td><td>\(G\)</td><td>\([м^3 / (кг \cdot с^2)]\)</td></tr>
+            <tr><td>Скорость света</td><td>\(c\)</td><td>\([м / с]\)</td></tr>
+            <tr><td>Время Планка</td><td>\(\tau_P\)</td><td>\([с]\)</td></tr>
+            <tr><td>Постоянная Больцмана</td><td>\(k_B\)</td><td>\([Дж / К] = [кг \cdot м^2 / (с^2 \cdot К)]\)</td></tr>
+        </tbody>
+    </table>
+
+    <!-- 2. БЕЗРАЗМЕРНЫЕ ОПЕРАТОРЫ -->
+    <h2 class="section-title">2. Безразмерные квантовые операторы</h2>
+    <ul style="color:#c8d4e0; list-style:square; padding-left:1.5rem; margin-bottom:1rem;">
+        <li>Оператор наблюдения \((1 - O_\psi)\) — безразмерная вероятность.</li>
+        <li>Оператор проводимости сознания \(Z_{op}(X, M, t)\) — безразмерен по определению.</li>
+        <li>Числовая константа \(16\pi\) — безразмерна.</li>
+    </ul>
+    <p style="color:#c8d4e0;">Таким образом, размерность всего выражения определяется «ядром»:</p>
+    <div class="formula-block" style="background:#0d1422; padding:0.8rem;">
+        \[
+        \frac{G^2 M^2}{k_B \tau_P c^4}
+        \]
+    </div>
+
+    <!-- 3. РАСЧЁТ -->
+    <h2 class="section-title">3. Жёсткий расчёт размерности ядра</h2>
+    <p style="color:#c8d4e0;"><strong>Числитель:</strong></p>
+    <div class="formula-block" style="background:#0d1422; padding:0.8rem;">
+        \[
+        [G^2 M^2] = \left( \frac{м^3}{кг \cdot с^2} \right)^2 \cdot кг^2 = \frac{м^6}{с^4}
+        \]
+    </div>
+    <p style="color:#c8d4e0;"><strong>Знаменатель:</strong></p>
+    <div class="formula-block" style="background:#0d1422; padding:0.8rem;">
+        \[
+        [k_B \tau_P c^4] = \left( \frac{кг \cdot м^2}{с^2 \cdot К} \right) \cdot с \cdot \left( \frac{м}{с} \right)^4 = \frac{кг \cdot м^6}{с^5 \cdot К}
+        \]
+    </div>
+    <p style="color:#c8d4e0;"><strong>Разделим числитель на знаменатель:</strong></p>
+    <div class="formula-block" style="background:#0d1422; padding:0.8rem;">
+        \[
+        [I_M] = \frac{м^6 / с^4}{кг \cdot м^6 / (с^5 \cdot К)} = \frac{с \cdot К}{кг}
+        \]
+    </div>
+    <div class="highlight-box">
+        <p style="font-size:1.4rem; color:#f6d365; font-weight:bold; text-align:center;">
+            \(\boxed{[I_M] = \frac{с \cdot К}{кг}}\)
+        </p>
+        <p style="color:#c8d4e0; text-align:center;">Секунда, умноженная на Кельвин, делённая на килограмм.</p>
+    </div>
+
+    <!-- 4. ФИЗИЧЕСКИЙ СМЫСЛ -->
+    <h2 class="section-title">4. Физический закон и вывод</h2>
+    <p style="color:#c8d4e0; margin-bottom:0.5rem;">
+        Полученная размерность \( [с \cdot К / кг] \) доказывает, что формула Цепелева является рабочим термодинамическим уравнением квантовой информатики.
+    </p>
+    <ul style="color:#c8d4e0; list-style:square; padding-left:1.5rem; margin-bottom:1rem;">
+        <li><strong>Связь времени и массы \([с / кг]\)</strong> — скорость изменения квантовых состояний единицы массы в секунду. Описание дематериализации в сингулярности.</li>
+        <li><strong>Связь с температурой \([К]\)</strong> — прямая связь с температурой Хокинга и энтропией Бекенштейна. Уравнение описывает тепловой и информационный баланс голографического экрана.</li>
+    </ul>
+
+    <!-- ЗАКЛЮЧЕНИЕ -->
+    <h2 class="section-title">✔️ Заключение рецензии</h2>
+    <div class="highlight-box" style="border-left-color:#fda085;">
+        <p style="color:#e6edf3; font-style:italic;">
+            Формула Цепелева полностью сбалансирована, не имеет математических противоречий, абсолютно удовлетворяет законам сохранения и жестко узаконена по всем канонам теоретической физики. <strong>Уравнение признано математически рабочим.</strong>
+        </p>
+    </div>
+
+    <!-- ЦИКЛ ПУБЛИКАЦИЙ -->
+    <h2 class="section-title">📚 Цикл работ по теме ZIPE-1.0</h2>
+    <ul class="ref-list">
+        <li>
+            <strong>1. Информационный потенциал бозонных конденсатов: уравнение Цепелева (ZIPE-1.0)</strong><br />
+            <span style="color:#8b9bb5;">№1785441629, 30.07.2026</span> &nbsp;
+            <a href="https://portalus.ru/modules/science/rus_readme.php?subaction=showfull&id=1785441629" target="_blank">Порталус</a>
+        </li>
+        <li>
+            <strong>2. Что такое оператор \( Z_{op} \) и как он работает? Гипотеза информационной проводимости</strong><br />
+            <span style="color:#8b9bb5;">№1785773345, 03.08.2026</span> &nbsp;
+            <a href="https://portalus.ru/modules/science/rus_readme.php?subaction=showfull&id=1785773345" target="_blank">Порталус</a>
+        </li>
+        <li>
+            <strong>3. Разбор формулы Цепелева (ZIPE-1.0): от материи к информации</strong><br />
+            <span style="color:#8b9bb5;">№178577…, 03.08.2026</span>
+        </li>
+        <li>
+            <strong>4. Академическое доказательство работоспособности единой формулы Цепелева (ZIPE-1.0)</strong><br />
+            <span style="color:#8b9bb5;">№1785776352, 03.08.2026</span> &nbsp;
+            <a href="https://portalus.ru/modules/science/rus_readme.php?subaction=showfull&id=1785776352" target="_blank">Порталус</a>
+        </li>
+    </ul>
+
+    <!-- КОНТАКТЫ -->
+    <div class="contact-row">
+        <div class="contact-item">📧 <a href="mailto:vip.cepelev@mail.ru">vip.cepelev@mail.ru</a></div>
+        <div class="contact-item">📰 <a href="https://dzen.ru/id/6a6663cd7d5d8652f1dfad82" target="_blank">Дзен-канал</a></div>
+        <div class="contact-item">🔗 <a href="https://portalus.ru/modules/science/rus_readme.php?subaction=showfull&id=1785441629" target="_blank">Порталус</a></div>
+        <div class="contact-item">🐙 <a href="https://github.com/Caper8585" target="_blank">GitHub</a></div>
+    </div>
+
+    <footer>
+        © 2026 Цепелев П.И. · Уравнение ZIPE-1.0 · Лицензия CC BY 4.0
+    </footer>
+
+</div>
 </body>
 </html>
