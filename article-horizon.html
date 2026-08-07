@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О применении уравнения ZIPE-1.0 к космологическому горизонту</title>
+    <meta name="description" content="Применение уравнения ZIPE-1.0 к задаче наблюдения объектов на космологическом горизонте. Информационная сингулярность на границе наблюдаемой Вселенной.">
+    <meta property="og:title" content="О применении уравнения ZIPE-1.0 к космологическому горизонту">
+    <meta property="og:description" content="Применение уравнения ZIPE-1.0 к задаче наблюдения объектов на космологическом горизонте. Информационная сингулярность на границе наблюдаемой Вселенной.">
+    <meta property="og:type" content="article">
+    <meta name="theme-color" content="#0a0a1a">
+    <meta name="yandex-verification" content="" />
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #0a0a1a;
+            color: #c0c8d8;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            display: flex;
+            justify-content: center;
+            padding: 30px 20px;
+            line-height: 1.8;
+        }
+        .container {
+            max-width: 860px;
+            width: 100%;
+            background: linear-gradient(145deg, #0a0a1a 0%, #1a0a2e 100%);
+            border: 1px solid #ffd70055;
+            border-radius: 24px;
+            padding: 40px 30px;
+            box-shadow: 0 0 60px #6c3ce033;
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffd700;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+        .meta {
+            color: #8899aa;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #ffd70033;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .meta a {
+            color: #66ccff;
+            text-decoration: none;
+        }
+        .meta a:hover {
+            text-decoration: underline;
+        }
+        h2 {
+            font-size: 1.6rem;
+            color: #ffd700;
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            border-left: 4px solid #ffd700;
+            padding-left: 14px;
+        }
+        h3 {
+            font-size: 1.3rem;
+            color: #ffd700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            padding-left: 14px;
+        }
+        p {
+            margin-bottom: 1rem;
+            color: #c0c8d8;
+        }
+        .formula-block {
+            background: #0d1422;
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin: 1.2rem 0;
+            text-align: center;
+            border: 1px solid #ffd70055;
+            overflow-x: auto;
+        }
+        .formula-block .math {
+            font-size: 1.3rem;
+            color: #ffffff;
+        }
+        ul, ol {
+            padding-left: 1.8rem;
+            margin-bottom: 1rem;
+            color: #c0c8d8;
+        }
+        ul li, ol li {
+            margin-bottom: 0.4rem;
+        }
+        .highlight-box {
+            background: #0d1422;
+            padding: 1.2rem 1.8rem;
+            border-radius: 16px;
+            border-left: 4px solid #ffd700;
+            margin: 1.2rem 0;
+        }
+        .highlight-box strong {
+            color: #ffd700;
+        }
+        .ref-list {
+            list-style: none;
+            padding: 0;
+        }
+        .ref-list li {
+            background: #0d1422;
+            border-radius: 12px;
+            padding: 0.8rem 1.2rem;
+            margin-bottom: 0.6rem;
+            border-left: 4px solid #ffd700;
+        }
+        .ref-list a {
+            color: #66ccff;
+            text-decoration: none;
+            border-bottom: 1px dashed #3a5a7a;
+            transition: 0.2s;
+        }
+        .ref-list a:hover {
+            color: #ffd700;
+            border-bottom-color: #ffd700;
+        }
+        .ref-list .pub-id {
+            color: #8899aa;
+            font-size: 0.9rem;
+        }
+        .keywords {
+            background: #0d1422;
+            padding: 0.8rem 1.2rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border: 1px solid #ffd70033;
+        }
+        .keywords strong {
+            color: #ffd700;
+        }
+        .keywords span {
+            display: inline-block;
+            background: #1a2337;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            margin: 0.2rem 0.3rem;
+            font-size: 0.9rem;
+            color: #c0c8d8;
+        }
+        .license-box {
+            background: #0d1422;
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin: 2rem 0 0 0;
+            border-left: 4px solid #ffd700;
+        }
+        .license-box p {
+            margin-bottom: 0.4rem;
+        }
+        .license-box a {
+            color: #66ccff;
+            text-decoration: none;
+            border-bottom: 1px dashed #3a5a7a;
+        }
+        .license-box a:hover {
+            color: #ffd700;
+        }
+        .footer-meta {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #ffd70033;
+            font-size: 0.95rem;
+            color: #8899aa;
+        }
+        .footer-meta a {
+            color: #66ccff;
+            text-decoration: none;
+        }
+        .footer-meta a:hover {
+            text-decoration: underline;
+        }
+        .badge {
+            display: inline-block;
+            background: #ffd70022;
+            border: 1px solid #ffd700;
+            color: #ffd700;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .stars {
+            color: #ffffff22;
+            font-size: 14px;
+            letter-spacing: 6px;
+            text-align: center;
+            margin: 6px 0;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 20px 16px; }
+            h1 { font-size: 1.5rem; }
+            h2 { font-size: 1.3rem; }
+            .formula-block .math { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="stars">✦ ✦ ✦ ✦ ✦</div>
+
+    <h1>О применении уравнения ZIPE-1.0 к космологическому горизонту: информационная сингулярность на границе наблюдаемой Вселенной</h1>
+
+    <div class="meta">
+        <span class="badge">Статья</span><br>
+        <strong>Автор:</strong> П.И. Цепелев<br>
+        <strong>Дата:</strong> 7 августа 2026<br>
+        <strong>Сайт:</strong> <a href="https://caper8585.github.io" target="_blank">caper8585.github.io</a>
+    </div>
+
+    <!-- АННОТАЦИЯ -->
+    <h2>Аннотация</h2>
+    <p>В работе рассматривается применение упрощённой формы уравнения информационного потенциала ZIPE-1.0 к задаче наблюдения объектов на космологическом горизонте. Показано, что при \( R = 13{,}8 \) млрд световых лет и \( t = 13{,}8 \) млрд лет информационный потенциал \( I_M \) стремится к бесконечности. Это позволяет интерпретировать горизонт Вселенной как информационную сингулярность, а наблюдателя — как активный фактор, проявляющий информацию о прошлом. Обсуждаются возможные астрофизические следствия, включая аномальную информационную насыщенность сигналов от ранних объектов и роль тёмной материи как усилителя информационного потока.</p>
+
+    <!-- 1. ВВЕДЕНИЕ -->
+    <h2>1. Введение</h2>
+    <p>Наблюдение объектов на расстоянии \( 13{,}8 \) млрд световых лет эквивалентно регистрации излучения, испущенного через \( \approx 500 \) млн лет после Большого взрыва. Таким образом, астрономические наблюдения в оптическом и инфракрасном диапазонах позволяют непосредственно исследовать прошлые состояния Вселенной. Однако стандартная космологическая модель не рассматривает информационную составляющую принимаемого сигнала как самостоятельную физическую величину.</p>
+    <p>В данной работе мы применяем упрощённую форму уравнения ZIPE-1.0 (Tsepelev Information Potential Equation, версия 1.0), введённую автором ранее, к данной задаче. Цель — определить поведение информационного потенциала \( I_M \) на границе наблюдаемой Вселенной и интерпретировать полученный результат.</p>
+
+    <!-- 2. МЕТОД -->
+    <h2>2. Метод</h2>
+    <p>Используется упрощённая форма уравнения ZIPE-1.0:</p>
+    <div class="formula-block">
+        <div class="math">\[ I_M = \frac{1}{R} - \frac{1}{R - t} \]</div>
+    </div>
+    <p>где:</p>
+    <ul>
+        <li>\( I_M \) — информационный потенциал системы, размерность \( [с \cdot К / кг] \);</li>
+        <li>\( R \) — радиус наблюдаемой Вселенной (горизонт), выраженный в световых годах;</li>
+        <li>\( t \) — время, прошедшее с момента испускания излучения до момента наблюдения (глубина взгляда в прошлое), выраженное в годах.</li>
+    </ul>
+    <p><strong>Граничные условия:</strong></p>
+    <ul>
+        <li>\( R = 13{,}8 \times 10^9 \) световых лет (современное значение космологического горизонта);</li>
+        <li>\( t = 13{,}8 \times 10^9 \) лет (возраст Вселенной для самых далёких объектов).</li>
+    </ul>
+
+    <!-- 3. РЕЗУЛЬТАТЫ -->
+    <h2>3. Результаты расчёта</h2>
+    <p>Подстановка граничных условий в уравнение:</p>
+    <div class="formula-block">
+        <div class="math">\[ I_M = \frac{1}{13{,}8 \times 10^9} - \frac{1}{13{,}8 \times 10^9 - 13{,}8 \times 10^9} = \frac{1}{13{,}8 \times 10^9} - \frac{1}{0} \]</div>
+    </div>
+    <p>Поскольку знаменатель второго члена стремится к нулю, его значение неограниченно возрастает:</p>
+    <div class="formula-block">
+        <div class="math">\[ I_M \to \infty \]</div>
+    </div>
+    <p>Таким образом, <strong>на космологическом горизонте информационный потенциал обращается в бесконечность</strong>.</p>
+
+    <!-- 4. ФИЗИЧЕСКАЯ ИНТЕРПРЕТАЦИЯ -->
+    <h2>4. Физическая интерпретация</h2>
+    <p>Полученный результат не означает бесконечной энергии или массы. Он указывает на <strong>информационную сингулярность</strong> — состояние, в котором информация о начальных условиях Вселенной сжата до максимально возможной плотности.</p>
+
+    <h3>4.1. Связь с началом Вселенной</h3>
+    <p>Объекты на горизонте \( R \) испустили свет в эпоху, близкую к рекомбинации. Регистрируемое излучение несёт информацию о состоянии материи и геометрии пространства-времени в ту эпоху. Бесконечное значение \( I_M \) математически отражает тот факт, что данный сигнал является предельным источником знаний о первичной сингулярности.</p>
+
+    <h3>4.2. Роль наблюдателя</h3>
+    <p>Уравнение включает наблюдателя через сам акт измерения: \( t \) — это время, прошедшее в системе отсчёта наблюдателя. Таким образом, \( I_M \) зависит не только от свойств объекта, но и от момента наблюдения. Настоящее время выступает как активный параметр, проявляющий информацию о прошлом.</p>
+
+    <h3>4.3. Влияние тёмной материи</h3>
+    <p>Полная форма ZIPE-1.0 содержит множитель \( (1 + \Omega_{DM})^2 \), где \( \Omega_{DM} \approx 0{,}268 \). Это даёт усиление информационного потока приблизительно в \( 1{,}6 \) раза на космологических масштабах. Тёмная материя, таким образом, может рассматриваться как среда, увеличивающая информационную ёмкость гравитационно-линзированного сигнала.</p>
+
+    <!-- 5. АСТРОФИЗИЧЕСКИЕ СЛЕДСТВИЯ -->
+    <h2>5. Астрофизические следствия</h2>
+    <p>Из выполненного расчёта следуют проверяемые предсказания:</p>
+    <ol>
+        <li><strong>Информационная насыщенность.</strong> Спектральные данные от объектов на \( z \approx 10-15 \) должны демонстрировать статистические аномалии, не объяснимые исключительно красным смещением или межзвёздным поглощением.</li>
+        <li><strong>Объяснение аномалий «Джеймс Уэбб».</strong> Наблюдаемые телескопом «Джеймс Уэбб» структуры в ранней Вселенной (например, массивные галактики с высокой звёздной плотностью) могут быть интерпретированы как информационные артефакты, усиленные тёмной материей, а не как непосредственно материальные объекты.</li>
+        <li><strong>Горизонт как информационный предел.</strong> Горизонт Вселенной является не только физической, но и информационной границей: за \( R = 13{,}8 \) млрд световых лет информация не может быть передана без потери когерентности.</li>
+    </ol>
+
+    <!-- 6. ВЫВОДЫ -->
+    <h2>6. Выводы</h2>
+    <p>Применение упрощённой формы уравнения ZIPE-1.0 к задаче наблюдения объектов на космологическом горизонте показывает, что:</p>
+    <ul>
+        <li>информационный потенциал \( I_M \) стремится к бесконечности при \( t \to R \);</li>
+        <li>горизонт Вселенной приобретает статус <strong>информационной сингулярности</strong>;</li>
+        <li>наблюдатель в настоящем времени является необходимым условием проявления этой сингулярности;</li>
+        <li>тёмная материя выступает как усилитель информационного потока, а не только как гравитационная аномалия.</li>
+    </ul>
+    <p>Полученные результаты не противоречат известным космологическим моделям, но предлагают новый взгляд на природу пространства, времени и информации.</p>
+
+    <!-- ЛИТЕРАТУРА -->
+    <h2>Литература</h2>
+    <ul class="ref-list">
+        <li>
+            <strong>Tsepelev, P.I. (2026).</strong> Information potential of boson condensates: the Tsepelev equation (ZIPE-1.0).<br>
+            <span class="pub-id">PORTALUS.RU, №1785441629.</span><br>
+            <a href="https://portalus.ru/modules/science/rus_readme.php?subaction=showfull&id=1785441629" target="_blank">🔗 Перейти к публикации</a>
+        </li>
+        <li>
+            <strong>Tsepelev, P.I. (2026).</strong> Academic proof of the operability of the unified Tsepelev formula (ZIPE-1.0).<br>
+            <span class="pub-id">PORTALUS.RU, №1785776352.</span><br>
+            <a href="https://portalus.ru/modules/science/rus_readme.php?subaction=showfull&id=1785776352" target="_blank">🔗 Перейти к публикации</a>
+        </li>
+        <li>
+            <strong>Hawking, S.W. (1975).</strong> Particle creation by black holes.<br>
+            <span class="pub-id">Communications in Mathematical Physics, 43(3), 199-220.</span><br>
+            <a href="https://link.springer.com/article/10.1007/BF02345020" target="_blank">🔗 Читать на Springer</a>
+        </li>
+        <li>
+            <strong>Bekenstein, J.D. (1973).</strong> Black holes and entropy.<br>
+            <span class="pub-id">Physical Review D, 7(8), 2333.</span><br>
+            <a href="https://journals.aps.org/prd/abstract/10.1103/PhysRevD.7.2333" target="_blank">🔗 Читать на APS</a>
+        </li>
+        <li>
+            <strong>Planck Collaboration (2020).</strong> Planck 2018 results.<br>
+            <span class="pub-id">Astronomy &amp; Astrophysics, 641, A1.</span><br>
+            <a href="https://www.aanda.org/articles/aa/abs/2020/09/aa38096-20/aa38096-20.html" target="_blank">🔗 Читать на A&A</a>
+        </li>
+    </ul>
+
+    <!-- КЛЮЧЕВЫЕ СЛОВА -->
+    <div class="keywords">
+        <strong>Ключевые слова:</strong><br>
+        <span>ZIPE-1.0</span>
+        <span>информационный потенциал</span>
+        <span>космологический горизонт</span>
+        <span>информационная сингулярность</span>
+        <span>тёмная материя</span>
+        <span>наблюдатель</span>
+        <span>астрофизика ранней Вселенной</span>
+    </div>
+
+    <!-- ИНФОРМАЦИЯ ОБ АВТОРЕ -->
+    <div class="footer-meta">
+        <h2 style="font-size: 1.2rem; border-left: none; padding-left: 0; margin-top: 0;">📄 Информация об авторе</h2>
+        <p><strong>Автор:</strong> Петр И. Цепелев</p>
+        <p>📧 Email: <a href="mailto:vip.cepelev@mail.ru">vip.cepelev@mail.ru</a></p>
+        <p>🐙 GitHub: <a href="https://caper8585.github.io" target="_blank">caper8585.github.io</a></p>
+        <p>📌 DOI: <a href="https://doi.org/10.5281/zenodo.21791107" target="_blank">https://doi.org/10.5281/zenodo.21791107</a></p>
+    </div>
+
+    <!-- ЛИЦЕНЗИЯ -->
+    <div class="license-box">
+        <p style="font-weight: bold; color: #ffd700;">© Цепелев П.И., 2026. Все права защищены.</p>
+        <p>Лицензия: <a href="https://creativecommons.org/licenses/by/4.0/deed.ru" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0)</a></p>
+        <p style="font-size: 0.9rem; color: #8899aa;">Вы можете свободно делиться и адаптировать этот материал при обязательном указании авторства.</p>
+    </div>
+
+    <div class="stars" style="margin-top: 2rem;">✦ ✦ ✦ ✦ ✦</div>
+
+</div>
+</body>
+</html>
