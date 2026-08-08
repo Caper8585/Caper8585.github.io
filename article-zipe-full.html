@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Уравнение ZIPE-1.0 — полная статья | Цепелев П.И.</title>
+    <meta name="description" content="Полная версия статьи об уравнении информационного потенциала Цепелева (ZIPE-1.0). Переход материи в информацию, размерностный анализ, оператор сознания Z_op.">
+    <meta property="og:title" content="Уравнение ZIPE-1.0 — полная статья">
+    <meta property="og:description" content="Полная версия статьи об уравнении информационного потенциала Цепелева (ZIPE-1.0).">
+    <meta property="og:type" content="article">
+    <meta name="theme-color" content="#0a0a1a">
+    <meta name="yandex-verification" content="" />
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #0a0a1a;
+            color: #c0c8d8;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            display: flex;
+            justify-content: center;
+            padding: 30px 20px;
+            line-height: 1.8;
+        }
+        .container {
+            max-width: 860px;
+            width: 100%;
+            background: linear-gradient(145deg, #0a0a1a 0%, #1a0a2e 100%);
+            border: 1px solid #ffd70055;
+            border-radius: 24px;
+            padding: 40px 30px;
+            box-shadow: 0 0 60px #6c3ce033;
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffd700;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+        .meta {
+            color: #8899aa;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #ffd70033;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .meta a {
+            color: #66ccff;
+            text-decoration: none;
+        }
+        .meta a:hover {
+            text-decoration: underline;
+        }
+        h2 {
+            font-size: 1.6rem;
+            color: #ffd700;
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            border-left: 4px solid #ffd700;
+            padding-left: 14px;
+        }
+        h3 {
+            font-size: 1.3rem;
+            color: #ffd700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            padding-left: 14px;
+        }
+        p {
+            margin-bottom: 1rem;
+            color: #c0c8d8;
+        }
+        .formula-block {
+            background: #0d1422;
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin: 1.2rem 0;
+            text-align: center;
+            border: 1px solid #ffd70055;
+            overflow-x: auto;
+        }
+        .formula-block .math {
+            font-size: 1.3rem;
+            color: #ffffff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2rem 0;
+            background: #0d1422;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 0.8rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #1f2a40;
+        }
+        th {
+            background: #1a2337;
+            color: #ffd700;
+            font-weight: 500;
+        }
+        td {
+            color: #c8d4e0;
+        }
+        ul, ol {
+            padding-left: 1.8rem;
+            margin-bottom: 1rem;
+            color: #c0c8d8;
+        }
+        ul li, ol li {
+            margin-bottom: 0.4rem;
+        }
+        .ref-list {
+            list-style: none;
+            padding: 0;
+        }
+        .ref-list li {
+            background: #0d1422;
+            border-radius: 12px;
+            padding: 0.8rem 1.2rem;
+            margin-bottom: 0.6rem;
+            border-left: 4px solid #ffd700;
+        }
+        .ref-list a {
+            color: #66ccff;
+            text-decoration: none;
+            border-bottom: 1px dashed #3a5a7a;
+            transition: 0.2s;
+        }
+        .ref-list a:hover {
+            color: #ffd700;
+            border-bottom-color: #ffd700;
+        }
+        .ref-list .pub-id {
+            color: #8899aa;
+            font-size: 0.9rem;
+        }
+        .keywords {
+            background: #0d1422;
+            padding: 0.8rem 1.2rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border: 1px solid #ffd70033;
+        }
+        .keywords strong {
+            color: #ffd700;
+        }
+        .keywords span {
+            display: inline-block;
+            background: #1a2337;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            margin: 0.2rem 0.3rem;
+            font-size: 0.9rem;
+            color: #c0c8d8;
+        }
+        .license-box {
+            background: #0d1422;
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin: 2rem 0 0 0;
+            border-left: 4px solid #ffd700;
+        }
+        .license-box p {
+            margin-bottom: 0.4rem;
+        }
+        .license-box a {
+            color: #66ccff;
+            text-decoration: none;
+            border-bottom: 1px dashed #3a5a7a;
+        }
+        .license-box a:hover {
+            color: #ffd700;
+        }
+        .stars {
+            color: #ffffff22;
+            font-size: 14px;
+            letter-spacing: 6px;
+            text-align: center;
+            margin: 6px 0;
+        }
+        .footer-meta {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #ffd70033;
+            font-size: 0.95rem;
+            color: #8899aa;
+        }
+        .footer-meta a {
+            color: #66ccff;
+            text-decoration: none;
+        }
+        .footer-meta a:hover {
+            text-decoration: underline;
+        }
+        .badge {
+            display: inline-block;
+            background: #ffd70022;
+            border: 1px solid #ffd700;
+            color: #ffd700;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 20px 16px; }
+            h1 { font-size: 1.5rem; }
+            h2 { font-size: 1.3rem; }
+            .formula-block .math { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="stars">✦ ✦ ✦ ✦ ✦</div>
+
+    <h1>Уравнение информационного потенциала Цепелева (ZIPE-1.0): объединённая теоретическая основа для перехода материи в информацию</h1>
+
+    <div class="meta">
+        <span class="badge">Научная статья</span><br>
+        <strong>Автор:</strong> Петр Ильич Цепелев<br>
+        <strong>Статус:</strong> Независимый исследователь<br>
+        <strong>Email:</strong> <a href="mailto:vip.cepelev@mail.ru">vip.cepelev@mail.ru</a><br>
+        <strong>GitHub:</strong> <a href="https://caper8585.github.io" target="_blank">caper8585.github.io</a><br>
+        <strong>Порталус:</strong> <a href="https://portalus.ru/modules/science/rus_readme.php?subaction=showfull&id=1785441629" target="_blank">№1785441629</a><br>
+        <strong>Дата:</strong> 4 августа 2026
+    </div>
+
+    <!-- АННОТАЦИЯ -->
+    <h2>Аннотация</h2>
+    <p>Мы представляем всеобъемлющую теоретическую основу, описывающую переход материи в информацию во время гравитационного коллапса бозонной звезды. Центральным результатом является уравнение информационного потенциала (ZIPE-1.0), которое вводит информационный потенциал \( I_M(X,t) \) как термодинамическую величину с размерностью \([с \cdot К / кг]\). Уравнение включает тёмную материю как усиливающий фактор через космологический параметр \( \Omega_{DM} \approx 0.268 \) и вводит оператор проводимости сознания \( Z_{op}(X,M,t) \). Строгий размерностный анализ в системе СИ подтверждает математическую состоятельность уравнения. Данная работа объединяет четыре связанные публикации, охватывающие вывод, интерпретацию, физические следствия и академическое доказательство ZIPE-1.0.</p>
+
+    <!-- 1. ВВЕДЕНИЕ -->
+    <h2>1. Введение</h2>
+    <p>Природа тёмной материи и судьба коллапсирующих бозонных звёзд остаются открытыми вопросами в современной физике. Данная работа предполагает, что коллапс бозонной звезды — это не просто гравитационное явление, а переход от материи к информации. Мы вводим информационный потенциал \( I_M(X,t) \) как меру этого перехода.</p>
+    <p><strong>Название ZIPE-1.0 расшифровывается как:</strong></p>
+    <ul>
+        <li><strong>Z</strong> — Zapelov (Цепелев)</li>
+        <li><strong>I</strong> — Information (Информация)</li>
+        <li><strong>P</strong> — Potential (Потенциал)</li>
+        <li><strong>E</strong> — Equation (Уравнение)</li>
+        <li><strong>1.0</strong> — первая версия</li>
+    </ul>
+
+    <!-- 2. УРАВНЕНИЕ -->
+    <h2>2. Уравнение ZIPE-1.0</h2>
+    <p><strong>Полная форма уравнения:</strong></p>
+    <div class="formula-block">
+        <div class="math">\[ I_M(X,t) = \frac{16\pi G^2 \cdot [M(1+\Omega_{DM})]^2}{k_B \cdot \tau_P \cdot c^4} \cdot (1 - O_\psi) \cdot Z_{op}(X,M,t) \]</div>
+    </div>
+
+    <p><strong>Где:</strong></p>
+    <table>
+        <thead><tr><th>Символ</th><th>Значение</th><th>Размерность / Значение</th></tr></thead>
+        <tbody>
+            <tr><td>\( I_M \)</td><td>Информационный потенциал</td><td>\([с \cdot К / кг]\)</td></tr>
+            <tr><td>\( G \)</td><td>Гравитационная постоянная</td><td>\(6.67430 \cdot 10^{-11} \, м^3/(кг \cdot с^2)\)</td></tr>
+            <tr><td>\( M \)</td><td>Масса бозонной звезды</td><td>[кг]</td></tr>
+            <tr><td>\( \Omega_{DM} \)</td><td>Параметр плотности тёмной материи</td><td>\(\approx 0.268\)</td></tr>
+            <tr><td>\( k_B \)</td><td>Постоянная Больцмана</td><td>\(1.380649 \cdot 10^{-23} \, Дж/К\)</td></tr>
+            <tr><td>\( \tau_P \)</td><td>Время Планка</td><td>\(5.39 \cdot 10^{-44} \, с\)</td></tr>
+            <tr><td>\( c \)</td><td>Скорость света</td><td>\(299\,792\,458 \, м/с\)</td></tr>
+            <tr><td>\( O_\psi \)</td><td>Фактор наблюдаемости</td><td>\(0 \le O_\psi < 1\)</td></tr>
+            <tr><td>\( Z_{op} \)</td><td>Оператор проводимости сознания</td><td>безразмерный</td></tr>
+        </tbody>
+    </table>
+
+    <p><strong>Упрощённая форма (для иллюстрации динамики):</strong></p>
+    <div class="formula-block">
+        <div class="math">\[ I_M = \frac{1}{R} - \frac{1}{R - t} \]</div>
+    </div>
+    <p>где \( R \) — радиус системы, \( t \) — время до коллапса. При \( t \to R \), \( I_M \to \infty \), что указывает на фазовый переход от материи к чистой информации.</p>
+
+    <!-- 3. РАЗМЕРНОСТНЫЙ АНАЛИЗ -->
+    <h2>3. Размерностный анализ</h2>
+    <p>Проведём строгий анализ размерностей в Международной системе единиц (СИ).</p>
+
+    <table>
+        <thead><tr><th>Величина</th><th>Обозначение</th><th>Размерность</th></tr></thead>
+        <tbody>
+            <tr><td>Масса</td><td>\( M \)</td><td>[кг]</td></tr>
+            <tr><td>Гравитационная постоянная</td><td>\( G \)</td><td>[м³/(кг·с²)]</td></tr>
+            <tr><td>Скорость света</td><td>\( c \)</td><td>[м/с]</td></tr>
+            <tr><td>Время Планка</td><td>\( \tau_P \)</td><td>[с]</td></tr>
+            <tr><td>Постоянная Больцмана</td><td>\( k_B \)</td><td>[кг·м²/(с²·К)]</td></tr>
+        </tbody>
+    </table>
+
+    <p><strong>Числитель:</strong></p>
+    <div class="formula-block">
+        <div class="math">\[ [G^2 M^2] = \left( \frac{м^3}{кг \cdot с^2} \right)^2 \cdot кг^2 = \frac{м^6}{с^4} \]</div>
+    </div>
+
+    <p><strong>Знаменатель:</strong></p>
+    <div class="formula-block">
+        <div class="math">\[ [k_B \cdot \tau_P \cdot c^4] = \left( \frac{кг \cdot м^2}{с^2 \cdot К} \right) \cdot с \cdot \left( \frac{м}{с} \right)^4 = \frac{кг \cdot м^6}{с^5 \cdot К} \]</div>
+    </div>
+
+    <p><strong>Итог:</strong></p>
+    <div class="formula-block">
+        <div class="math">\[ [I_M] = \frac{м^6 / с^4}{кг \cdot м^6 / (с^5 \cdot К)} = \frac{с \cdot К}{кг} \]</div>
+    </div>
+    <p>Таким образом, \( I_M \) имеет размерность \( [с \cdot К / кг] \) — <strong>новая физическая величина</strong>, связывающая время, температуру и массу.</p>
+
+    <!-- 4. ОПЕРАТОР Z_op -->
+    <h2>4. Оператор \( Z_{op} \)</h2>
+    <p>Оператор \( Z_{op}(X, M, t) \) вводится как <strong>проводимость сознания</strong> — мера того, насколько легко информация проходит через систему.</p>
+    <ul>
+        <li>В стабильных системах: \( Z_{op} \approx 0 \)</li>
+        <li>Вблизи коллапса: \( Z_{op} \to 1 \)</li>
+        <li>В момент сингулярности: \( Z_{op} \to \infty \)</li>
+    </ul>
+
+    <p><strong>Возможные математические формы:</strong></p>
+    <div class="formula-block">
+        <div class="math">\[ Z_{op} = \frac{1}{1 + e^{-k \cdot (M - M_{crit})}} \]</div>
+    </div>
+    <p>ИЛИ</p>
+    <div class="formula-block">
+        <div class="math">\[ Z_{op} = |\Psi(X,t)|^2 \]</div>
+    </div>
+    <p>ИЛИ</p>
+    <div class="formula-block">
+        <div class="math">\[ Z_{op} = \frac{S(X,t)}{S_{max}} \]</div>
+    </div>
+    <p>где \( S \) — энтропия, \( S_{max} \) — максимальная энтропия (например, энтропия Хокинга).</p>
+
+    <!-- 5. КЛЮЧЕВЫЕ ФИЗИЧЕСКИЕ СЛЕДСТВИЯ -->
+    <h2>5. Ключевые физические следствия</h2>
+    <ol>
+        <li><strong>Тёмная материя не пассивна</strong> — она усиливает информационный потенциал в \((1 + \Omega_{DM})^2 \approx 1.608\) раз.</li>
+        <li><strong>Сознание получило физическую размерность</strong> — \([с·К/кг]\), что делает его измеримым параметром.</li>
+        <li><strong>Время дискретно</strong> — наличие \( \tau_P \) означает, что информационный потенциал генерируется квантами времени.</li>
+        <li><strong>Коллапс — это переход</strong> — бозонные звёзды не просто становятся чёрными дырами, они становятся <strong>чистыми информационными каналами</strong>.</li>
+    </ol>
+
+    <!-- 6. ПУБЛИКАЦИИ -->
+    <h2>6. Цикл публикаций</h2>
+    <p>Данная работа поддерживается серией из четырёх публикаций на научном портале <strong>PORTALUS.RU</strong>:</p>
+    <ul>
+        <li>Информационный потенциал бозонных конденсатов: уравнение Цепелева (ZIPE-1.0) — №1785441629, 30.07.2026</li>
+        <li>Что такое оператор \( Z_{op} \) и как он работает? Гипотеза информационной проводимости — №1785773345, 03.08.2026</li>
+        <li>Разбор формулы Цепелева (ZIPE-1.0): от материи к информации — 03.08.2026</li>
+        <li>Академическое доказательство работоспособности единой формулы Цепелева (ZIPE-1.0) — №1785776352, 03.08.2026</li>
+    </ul>
+
+    <!-- 7. ЗАКЛЮЧЕНИЕ -->
+    <h2>7. Заключение</h2>
+    <p>Уравнение ZIPE-1.0 математически состоятельно, удовлетворяет законам сохранения и предоставляет новую основу для понимания связи между гравитацией, информацией и сознанием. Размерностный анализ подтверждает его обоснованность в системе СИ.</p>
+    <p><strong>Будущая работа будет направлена на:</strong></p>
+    <ul>
+        <li>Вывод \( Z_{op} \) из первых принципов,</li>
+        <li>Экспериментальную проверку через сигналы гравитационных волн при коллапсе бозонных звёзд,</li>
+        <li>Анализ распределения тёмной материи в галактических гало,</li>
+        <li>Квантовую информационную энтропию в термодинамике чёрных дыр.</li>
+    </ul>
+
+    <!-- 8. ЛИТЕРАТУРА -->
+    <h2>8. Литература</h2>
+    <ul class="ref-list">
+        <li>
+            <strong>Tsepelev, P.I. (2026).</strong> Information potential of boson condensates: the Tsepelev equation (ZIPE-1.0).<br>
+            <span class="pub-id">PORTALUS.RU, №1785441629.</span><br>
+            <a href="https://portalus.ru/modules/science/rus_readme.php?subaction=showfull&id=1785441629" target="_blank">🔗 Перейти к публикации</a>
+        </li>
+        <li>
+            <strong>Tsepelev, P.I. (2026).</strong> What is the operator \( Z_{op} \) and how does it work? A hypothesis of information conductivity.<br>
+            <span class="pub-id">PORTALUS.RU, №1785773345.</span>
+        </li>
+        <li>
+            <strong>Tsepelev, P.I. (2026).</strong> Breakdown of the Tsepelev formula (ZIPE-1.0): from matter to information.<br>
+            <span class="pub-id">PORTALUS.RU.</span>
+        </li>
+        <li>
+            <strong>Tsepelev, P.I. (2026).</strong> Academic proof of the operability of the unified Tsepelev formula (ZIPE-1.0).<br>
+            <span class="pub-id">PORTALUS.RU, №1785776352.</span><br>
+            <a href="https://portalus.ru/modules/science/rus_readme.php?subaction=showfull&id=1785776352" target="_blank">🔗 Перейти к публикации</a>
+        </li>
+        <li>
+            <strong>Hawking, S.W. (1975).</strong> Particle creation by black holes.<br>
+            <span class="pub-id">Communications in Mathematical Physics, 43(3), 199-220.</span><br>
+            <a href="https://link.springer.com/article/10.1007/BF02345020" target="_blank">🔗 Читать на Springer</a>
+        </li>
+        <li>
+            <strong>Bekenstein, J.D. (1973).</strong> Black holes and entropy.<br>
+            <span class="pub-id">Physical Review D, 7(8), 2333.</span><br>
+            <a href="https://journals.aps.org/prd/abstract/10.1103/PhysRevD.7.2333" target="_blank">🔗 Читать на APS</a>
+        </li>
+        <li>
+            <strong>Penrose, R. (1989).</strong> <em>The Emperor's New Mind</em>.<br>
+            <span class="pub-id">Oxford University Press.</span><br>
+            <a href="https://global.oup.com/academic/product/the-emperors-new-mind-9780198784920" target="_blank">🔗 Страница книги</a>
+        </li>
+        <li>
+            <strong>Wheeler, J.A. (1990).</strong> Information, physics, quantum: The search for links.<br>
+            <span class="pub-id">In Complexity, Entropy, and the Physics of Information.</span><br>
+            <a href="https://books.google.com/books?id=7j3tDwAAQBAJ&pg=PA3" target="_blank">🔗 Фрагмент на Google Books</a>
+        </li>
+    </ul>
+
+    <!-- КЛЮЧЕВЫЕ СЛОВА -->
+    <div class="keywords">
+        <strong>Ключевые слова:</strong><br>
+        <span>ZIPE-1.0</span>
+        <span>информационный потенциал</span>
+        <span>бозонная звезда</span>
+        <span>тёмная материя</span>
+        <span>проводимость сознания</span>
+        <span>гравитационный коллапс</span>
+        <span>размерностный анализ</span>
+        <span>квантовая информация</span>
+    </div>
+
+    <!-- ЛИЦЕНЗИЯ -->
+    <div class="license-box">
+        <p style="font-weight: bold; color: #ffd700;">© Цепелев П.И., 2026. Все права защищены.</p>
+        <p>Лицензия: <a href="https://creativecommons.org/licenses/by/4.0/deed.ru" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0)</a></p>
+        <p style="font-size: 0.9rem; color: #8899aa;">Вы можете свободно делиться и адаптировать этот материал при обязательном указании авторства.</p>
+    </div>
+
+    <div class="stars" style="margin-top: 2rem;">✦ ✦ ✦ ✦ ✦</div>
+
+</div>
+</body>
+</html>
