@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Циклическая модель ZIPE-1.0</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0a0a1a;
+            color: #c0c8d8;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            display: flex;
+            justify-content: center;
+            padding: 30px 20px;
+            line-height: 1.8;
+        }
+        .container {
+            max-width: 860px;
+            width: 100%;
+            background: linear-gradient(145deg, #0a0a1a 0%, #1a0a2e 100%);
+            border: 1px solid #ffd70055;
+            border-radius: 24px;
+            padding: 40px 30px;
+            box-shadow: 0 0 60px #6c3ce033;
+            text-align: center;
+        }
+        .header {
+            border-bottom: 1px solid #ffd70033;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 32px;
+            color: #ffd700;
+            letter-spacing: 2px;
+        }
+        .header .sub {
+            font-size: 16px;
+            color: #aabbcc;
+            letter-spacing: 3px;
+        }
+        .header .badge {
+            display: inline-block;
+            margin-top: 10px;
+            background: #ffd70022;
+            border: 1px solid #ffd700;
+            color: #ffd700;
+            padding: 4px 16px;
+            border-radius: 30px;
+            font-size: 12px;
+        }
+        .section-title {
+            font-size: 22px;
+            color: #ffd700;
+            font-weight: bold;
+            text-align: left;
+            border-left: 4px solid #ffd700;
+            padding-left: 14px;
+            margin: 30px 0 12px 0;
+        }
+        .formula-box {
+            background: #0d0d22;
+            border: 1px solid #ffd70055;
+            border-radius: 16px;
+            padding: 22px 18px;
+            margin: 10px 0 20px 0;
+            text-align: center;
+        }
+        .formula {
+            font-size: 1.5rem;
+            color: #ffd700;
+            font-weight: 300;
+            letter-spacing: 1px;
+            padding: 6px 0;
+            font-family: 'Times New Roman', serif;
+        }
+        .formula-sub {
+            font-size: 14px;
+            color: #8899aa;
+            margin-top: 6px;
+        }
+        .legend {
+            background: #0d1422;
+            padding: 16px 20px;
+            border-radius: 16px;
+            margin: 20px 0 0 0;
+            border-left: 4px solid #ffd700;
+            text-align: left;
+            color: #aabbcc;
+            font-size: 0.95rem;
+        }
+        .legend strong {
+            color: #ffd700;
+        }
+        .quote {
+            font-style: italic;
+            color: #ffd700;
+            font-size: 18px;
+            padding: 12px 0;
+            border-top: 1px solid #ffd70022;
+            border-bottom: 1px solid #ffd70022;
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #445566;
+            border-top: 1px solid #ffd70022;
+            padding-top: 20px;
+            margin-top: 30px;
+        }
+        .footer a {
+            color: #66ccff;
+            text-decoration: none;
+        }
+        .stars {
+            color: #ffffff22;
+            font-size: 14px;
+            letter-spacing: 6px;
+            margin: 6px 0;
+        }
+        .sup {
+            font-size: 0.7rem;
+            vertical-align: super;
+        }
+        .sub {
+            font-size: 0.7rem;
+            vertical-align: sub;
+        }
+        .frac {
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0 4px;
+        }
+        .frac .num {
+            display: block;
+            border-bottom: 1px solid #ffd700;
+            padding: 0 6px 2px 6px;
+            color: #ffd700;
+        }
+        .frac .den {
+            display: block;
+            padding: 2px 6px 0 6px;
+            color: #ffd700;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 20px 16px; }
+            .header h1 { font-size: 24px; }
+            .section-title { font-size: 18px; }
+            .formula { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="stars">✦ ✦ ✦ ✦ ✦</div>
+
+        <div class="header">
+            <h1>Цепелев П.И.</h1>
+            <div class="sub">ЦИКЛИЧЕСКАЯ МОДЕЛЬ ZIPE-1.0</div>
+            <div class="badge">Расширение уравнения · 2026</div>
+        </div>
+
+        <!-- 1 -->
+        <div class="section-title">1. Исходная форма</div>
+        <div class="formula-box">
+            <div class="formula">
+                I<sub>M</sub> = 
+                <span class="frac"><span class="num">1</span><span class="den">R</span></span>
+                −
+                <span class="frac"><span class="num">1</span><span class="den">R − t</span></span>
+            </div>
+            <div class="formula-sub">Упрощённая форма ZIPE-1.0</div>
+        </div>
+
+        <!-- 2 -->
+        <div class="section-title">2. Предел и переход</div>
+        <div class="formula-box">
+            <div class="formula">
+                lim <sub>t → R</sub> I<sub>M</sub> = ∞
+            </div>
+            <div class="formula-sub">Достижение горизонта</div>
+        </div>
+
+        <div class="formula-box" style="border-color: #66ccff55;">
+            <div class="formula">
+                𝒯 : ∞ → Λ<sub>0</sub>
+            </div>
+            <div class="formula-sub">Оператор перехода</div>
+        </div>
+
+        <!-- 3 -->
+        <div class="section-title">3. Скорость изменения</div>
+        <div class="formula-box">
+            <div class="formula">
+                <span class="frac"><span class="num">dI<sub>M</sub></span><span class="den">dt</span></span>
+                = −
+                <span class="frac"><span class="num">1</span><span class="den">(R − t)<sup>2</sup></span></span>
+            </div>
+            <div class="formula-sub">Производная по времени</div>
+        </div>
+
+        <div class="formula-box" style="border-color: #66ccff55;">
+            <div class="formula">
+                <span class="frac"><span class="num">dI<sub>M</sub></span><span class="den">dt</span></span>
+                = − ( <span class="frac"><span class="num">1</span><span class="den">R</span></span> − I<sub>M</sub> )<sup>2</sup>
+            </div>
+            <div class="formula-sub">Альтернативная форма</div>
+        </div>
+
+        <!-- 4 -->
+        <div class="section-title">4. Новый уровень</div>
+        <div class="formula-box">
+            <div class="formula">
+                I<sub>M</sub><sup>(1)</sup> = 
+                <span class="frac"><span class="num">1</span><span class="den">Λ<sub>0</sub></span></span>
+                −
+                <span class="frac"><span class="num">1</span><span class="den">Λ<sub>0</sub> − t'</span></span>
+            </div>
+            <div class="formula-sub">Первый переход</div>
+        </div>
+
+        <div class="formula-box" style="border-color: #66ccff55;">
+            <div class="formula">
+                I<sub>M</sub><sup>(n+1)</sup> = 
+                <span class="frac"><span class="num">1</span><span class="den">Λ<sub>n</sub></span></span>
+                −
+                <span class="frac"><span class="num">1</span><span class="den">Λ<sub>n</sub> − t'</span></span>
+            </div>
+            <div class="formula-sub">Общая форма</div>
+        </div>
+
+        <!-- 5 -->
+        <div class="section-title">5. Полная система</div>
+        <div class="formula-box">
+            <div class="formula" style="font-size: 1.2rem; line-height: 2;">
+                I<sub>M</sub><sup>(0)</sup>(t) = 1/R − 1/(R − t), при t < R<br>
+                lim <sub>t → R<sup>−</sup></sub> I<sub>M</sub><sup>(0)</sup>(t) = ∞<br>
+                𝒯 : ∞ → Λ<sub>0</sub><br>
+                I<sub>M</sub><sup>(1)</sup>(t') = 1/Λ<sub>0</sub> − 1/(Λ<sub>0</sub> − t'), при t' < Λ<sub>0</sub><br>
+                lim <sub>t' → Λ<sub>0</sub><sup>−</sup></sub> I<sub>M</sub><sup>(1)</sup>(t') = ∞<br>
+                𝒯 : ∞ → Λ<sub>1</sub><br>
+                ⋮<br>
+                I<sub>M</sub><sup>(n+1)</sup>(t') = 1/Λ<sub>n</sub> − 1/(Λ<sub>n</sub> − t'), при t' < Λ<sub>n</sub>
+            </div>
+            <div class="formula-sub">Смена уровней реальности</div>
+        </div>
+
+        <!-- Легенда -->
+        <div class="legend">
+            <div><strong>R</strong> — начальный горизонт</div>
+            <div><strong>Λ<sub>n</sub></strong> — новый горизонт после перехода</div>
+            <div><strong>𝒯</strong> — оператор перехода</div>
+            <div><strong>n</strong> — номер цикла</div>
+            <div><strong>t'</strong> — время в новой системе</div>
+        </div>
+
+        <div class="quote">♦ От физики материи — к физике смысла ♦</div>
+
+        <div class="footer">
+            © Цепелев П.И. · ZIPE-1.0 · <a href="https://caper8585.github.io" target="_blank">caper8585.github.io</a>
+        </div>
+
+        <div class="stars" style="margin-top: 20px;">✦ ✦ ✦ ✦ ✦</div>
+
+    </div>
+</body>
+</html>
