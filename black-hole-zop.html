@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информационный потенциал чёрной дыры — Цепелев П.И.</title>
+    <meta name="description" content="Расчёт информационного потенциала чёрной дыры с формализованным оператором Z_op в рамках уравнения ZIPE-1.0">
+    <meta property="og:title" content="Информационный потенциал чёрной дыры">
+    <meta property="og:description" content="Расчёт с формализованным оператором Z_op в рамках уравнения ZIPE-1.0">
+    <meta property="og:type" content="article">
+    <meta name="theme-color" content="#0a0a1a">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0a0a1a;
+            color: #c0c8d8;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            display: flex;
+            justify-content: center;
+            padding: 30px 20px;
+            line-height: 1.8;
+        }
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: linear-gradient(145deg, #0a0a1a 0%, #1a0a2e 100%);
+            border: 1px solid #ffd70055;
+            border-radius: 24px;
+            padding: 40px 30px;
+            box-shadow: 0 0 60px #6c3ce033;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #ffd700;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        .meta {
+            color: #8899aa;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #ffd70033;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .meta a {
+            color: #66ccff;
+            text-decoration: none;
+        }
+        h2 {
+            font-size: 1.6rem;
+            color: #ffd700;
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            border-left: 4px solid #ffd700;
+            padding-left: 14px;
+        }
+        h3 {
+            font-size: 1.3rem;
+            color: #ffd700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            padding-left: 14px;
+        }
+        p { margin-bottom: 1rem; color: #c0c8d8; }
+        .formula-block {
+            background: #0d1422;
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin: 1.2rem 0;
+            text-align: center;
+            border: 1px solid #ffd70055;
+            overflow-x: auto;
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+        ul, ol { padding-left: 1.8rem; margin-bottom: 1rem; color: #c0c8d8; }
+        ul li, ol li { margin-bottom: 0.4rem; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2rem 0;
+            background: #0d1422;
+            border-radius: 12px;
+            overflow: hidden;
+            font-size: 0.95rem;
+        }
+        th, td {
+            padding: 0.8rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #1f2a40;
+        }
+        th { background: #1a2337; color: #ffd700; font-weight: 500; }
+        td { color: #c8d4e0; }
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #445566;
+            border-top: 1px solid #ffd70022;
+            padding-top: 20px;
+            margin-top: 30px;
+            letter-spacing: 1px;
+        }
+        .footer a {
+            color: #66ccff;
+            text-decoration: none;
+            border-bottom: 1px solid #66ccff44;
+        }
+        .footer a:hover { color: #ffd700; border-bottom-color: #ffd700; }
+        .stars {
+            color: #ffffff22;
+            font-size: 14px;
+            letter-spacing: 6px;
+            text-align: center;
+            margin: 6px 0;
+        }
+        .quote {
+            font-style: italic;
+            color: #ffd700;
+            text-align: center;
+            font-size: 18px;
+            padding: 12px 0;
+            border-top: 1px solid #ffd70022;
+            border-bottom: 1px solid #ffd70022;
+            margin: 20px 0;
+        }
+        .keywords {
+            background: #0d1422;
+            padding: 0.8rem 1.2rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border: 1px solid #ffd70033;
+            text-align: center;
+        }
+        .keywords span {
+            display: inline-block;
+            background: #1a2337;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            margin: 0.2rem 0.3rem;
+            font-size: 0.9rem;
+            color: #c0c8d8;
+        }
+        .license-box {
+            background: #0d1422;
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin: 2rem 0 0 0;
+            border-left: 4px solid #ffd700;
+            text-align: center;
+        }
+        .license-box a {
+            color: #66ccff;
+            text-decoration: none;
+            border-bottom: 1px solid #66ccff44;
+        }
+        .license-box a:hover { color: #ffd700; }
+        @media (max-width: 600px) {
+            .container { padding: 20px 16px; }
+            h1 { font-size: 1.5rem; }
+            h2 { font-size: 1.3rem; }
+            .formula-block { font-size: 1rem; padding: 1rem; }
+            table, th, td { font-size: 0.8rem; padding: 0.4rem 0.6rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="stars">✦ ✦ ✦ ✦ ✦</div>
+
+    <h1>Информационный потенциал чёрной дыры: расчёт с формализованым оператором Z<sub>op</sub> в рамках уравнения ZIPE-1.0</h1>
+
+    <div class="meta">
+        <strong>Автор:</strong> Цепелев П.И.<br>
+        <strong>Дата:</strong> 10 августа 2026<br>
+        <strong>Сайт:</strong> <a href="https://caper8585.github.io" target="_blank">caper8585.github.io</a>
+    </div>
+
+    <!-- АННОТАЦИЯ -->
+    <h2>Аннотация</h2>
+    <p>В работе представлен уточнённый численный расчёт информационного потенциала I<sub>M</sub> для чёрной дыры с массой, близкой к массе Вселенной, с использованием формализованного оператора проводимости Z<sub>op</sub>. Оператор определён через энтропию фон Неймана и квантовые каналы, что позволяет интерпретировать его как безразмерную меру информационной прозрачности системы. Расчёт проведён для трёх состояний системы: идеальная проводимость (Z<sub>op</sub> = 1), частичная проводимость (Z<sub>op</sub> = 0,5), низкая проводимость (Z<sub>op</sub> = 0,28). Показано, что I<sub>M</sub> масштабируется линейно относительно Z<sub>op</sub>, а на горизонте событий (t → R) потенциал стремится к бесконечности, что соответствует переходу материи в информацию.</p>
+
+    <!-- 1 -->
+    <h2>1. Введение</h2>
+    <p>В предыдущих работах автора было предложено уравнение информационного потенциала ZIPE-1.0, в котором оператор Z<sub>op</sub> интерпретировался как «проводимость сознания». В данной работе Z<sub>op</sub> формализован через энтропию фон Неймана и квантовые каналы, что позволяет провести численный расчёт I<sub>M</sub> для различных состояний системы. Цель — показать, как Z<sub>op</sub> влияет на информационный потенциал чёрной дыры и как это согласуется с гипотезой о переходе материи в информацию.</p>
+
+    <!-- 2 -->
+    <h2>2. Формализация оператора Z<sub>op</sub></h2>
+
+    <h3>2.1. Через энтропию фон Неймана</h3>
+    <p>Для системы с матрицей плотности ρ энтропия фон Неймана определяется как:</p>
+    <div class="formula-block">S(ρ) = — Tr(ρ · ln ρ)</div>
+    <p>Максимальная энтропия для системы размерности d:</p>
+    <div class="formula-block">S<sub>max</sub> = ln d</div>
+    <p>Тогда оператор проводимости сознания определяется как:</p>
+    <div class="formula-block">Z<sub>op</sub> = 1 — S(ρ) / S<sub>max</sub></div>
+    <p><strong>Свойства:</strong></p>
+    <ul>
+        <li>Z<sub>op</sub> = 1 для чистого состояния (S = 0),</li>
+        <li>Z<sub>op</sub> = 0 для полностью смешанного состояния (S = S<sub>max</sub>).</li>
+    </ul>
+
+    <h3>2.2. Через квантовый канал</h3>
+    <p>Пусть E — квантовый канал:</p>
+    <div class="formula-block">E(ρ) = Σ K<sub>i</sub> · ρ · K<sub>i</sub>†</div>
+    <p>Пропускная способность канала:</p>
+    <div class="formula-block">C(E) = max<sub>ρ</sub> [ S(E(ρ)) — S(ρ) ]</div>
+    <p>Максимальная пропускная способность:</p>
+    <div class="formula-block">C<sub>max</sub> = log<sub>2</sub> d</div>
+    <p>Тогда:</p>
+    <div class="formula-block">Z<sub>op</sub> = C(E) / C<sub>max</sub></div>
+
+    <!-- 3 -->
+    <h2>3. Уравнение ZIPE-1.0 (полная форма)</h2>
+    <div class="formula-block">I<sub>M</sub> = (16πG² · [M(1+Ω<sub>DM</sub>)]²) / (k<sub>B</sub> · τ<sub>P</sub> · c⁴) · (1 — O<sub>ψ</sub>) · Z<sub>op</sub></div>
+
+    <!-- 4 -->
+    <h2>4. Исходные данные</h2>
+    <table>
+        <thead><tr><th>Параметр</th><th>Обозначение</th><th>Значение</th></tr></thead>
+        <tbody>
+            <tr><td>Масса чёрной дыры</td><td>M</td><td>10<sup>58</sup> кг</td></tr>
+            <tr><td>Гравитационная постоянная</td><td>G</td><td>6,67 × 10<sup>-11</sup> м³/(кг·с²)</td></tr>
+            <tr><td>Скорость света</td><td>c</td><td>3 × 10<sup>8</sup> м/с</td></tr>
+            <tr><td>Постоянная Больцмана</td><td>k<sub>B</sub></td><td>1,38 × 10<sup>-23</sup> Дж/К</td></tr>
+            <tr><td>Время Планка</td><td>τ<sub>P</sub></td><td>5,39 × 10<sup>-44</sup> с</td></tr>
+            <tr><td>Параметр тёмной материи</td><td>Ω<sub>DM</sub></td><td>0,268</td></tr>
+            <tr><td>Оператор наблюдения</td><td>O<sub>ψ</sub></td><td>0</td></tr>
+            <tr><td>Радиус горизонта</td><td>r<sub>s</sub> = 2GM/c²</td><td>1,48 × 10<sup>31</sup> м</td></tr>
+        </tbody>
+    </table>
+
+    <!-- 5 -->
+    <h2>5. Расчёт числителя и знаменателя</h2>
+
+    <h3>5.1. Числитель</h3>
+    <div class="formula-block">16πG² · [M(1+Ω<sub>DM</sub>)]² = 3,59 × 10<sup>96</sup></div>
+
+    <h3>5.2. Знаменатель</h3>
+    <div class="formula-block">k<sub>B</sub> · τ<sub>P</sub> · c⁴ = 6,02 × 10<sup>-33</sup></div>
+
+    <h3>5.3. Базовый потенциал (Z<sub>op</sub> = 1)</h3>
+    <div class="formula-block">I<sub>M</sub><sup>(0)</sup> = 5,96 × 10<sup>128</sup></div>
+
+    <!-- 6 -->
+    <h2>6. Расчёт I<sub>M</sub> для различных Z<sub>op</sub></h2>
+    <table>
+        <thead><tr><th>Состояние системы</th><th>Z<sub>op</sub></th><th>I<sub>M</sub></th></tr></thead>
+        <tbody>
+            <tr><td>Идеальная проводимость</td><td>1,0</td><td>5,96 × 10<sup>128</sup></td></tr>
+            <tr><td>Частичная проводимость</td><td>0,5</td><td>2,98 × 10<sup>128</sup></td></tr>
+            <tr><td>Низкая проводимость (шум)</td><td>0,28</td><td>1,67 × 10<sup>128</sup></td></tr>
+        </tbody>
+    </table>
+
+    <!-- 7 -->
+    <h2>7. Физическая интерпретация</h2>
+    <table>
+        <thead><tr><th>Z<sub>op</sub></th><th>Физический смысл</th><th>I<sub>M</sub></th></tr></thead>
+        <tbody>
+            <tr><td>1,0</td><td>Система в чистом состоянии, вся информация доступна</td><td>5,96 × 10<sup>128</sup></td></tr>
+            <tr><td>0,5</td><td>Смешанное состояние, часть информации потеряна</td><td>2,98 × 10<sup>128</sup></td></tr>
+            <tr><td>0,28</td><td>Высокая энтропия, информация зашумлена</td><td>1,67 × 10<sup>128</sup></td></tr>
+        </tbody>
+    </table>
+
+    <!-- 8 -->
+    <h2>8. Связь с гипотезой «остекленения»</h2>
+    <p>При t → R:</p>
+    <div class="formula-block">lim (t → R) I<sub>M</sub> = ∞</div>
+    <div class="formula-block">lim (t → R) dI<sub>M</sub>/dt = -∞</div>
+    <div class="formula-block">Δt' = 0</div>
+    <p>Эффект «остекленения» усиливается с ростом Z<sub>op</sub>. При Z<sub>op</sub> → 1 система становится идеальным информационным зеркалом.</p>
+
+    <!-- 9 -->
+    <h2>9. Детальный вывод</h2>
+
+    <h3>9.1. Оператор Z<sub>op</sub> формализован как безразмерная мера информационной прозрачности системы</h3>
+    <p>В предыдущих работах Z<sub>op</sub> интерпретировался как «проводимость сознания» — метафорический термин без строгого математического определения. В данной работе он определён через энтропию фон Неймана и квантовые каналы, что делает его физическим параметром.</p>
+
+    <h3>9.2. Информационный потенциал I<sub>M</sub> масштабируется линейно относительно Z<sub>op</sub></h3>
+    <p>Из полной формы уравнения ZIPE-1.0: I<sub>M</sub> = I<sub>M</sub><sup>(0)</sup> · Z<sub>op</sub>. Уменьшение Z<sub>op</sub> в 2 раза даёт уменьшение I<sub>M</sub> в 2 раза.</p>
+
+    <h3>9.3. Для чёрной дыры с массой 10<sup>58</sup> кг получены численные значения I<sub>M</sub></h3>
+    <p>Расчёт проведён с использованием фундаментальных констант. I<sub>M</sub> находится в диапазоне от 1,67 × 10<sup>128</sup> до 5,96 × 10<sup>128</sup>.</p>
+
+    <h3>9.4. На горизонте событий I<sub>M</sub> → ∞, что соответствует переходу материи в информацию</h3>
+    <p>Из упрощённой формы ZIPE-1.0 при t → R: I<sub>M</sub> → ∞. В сочетании с гравитационным замедлением времени (Δt' = 0) получаем, что время останавливается, а информация становится бесконечной.</p>
+
+    <h3>9.5. Формализация Z<sub>op</sub> делает модель более гибкой и физически обоснованной</h3>
+    <p>Z<sub>op</sub> теперь имеет уравнение эволюции и связан с энтропией и квантовыми каналами, что позволяет использовать модель для различных систем.</p>
+
+    <!-- 10 -->
+    <h2>10. Итог</h2>
+    <ol>
+        <li>Z<sub>op</sub> является физическим параметром, а не метафорой.</li>
+        <li>I<sub>M</sub> масштабируется линейно с Z<sub>op</sub>.</li>
+        <li>Для чёрной дыры с массой Вселенной I<sub>M</sub> находится в диапазоне 1,67 × 10<sup>128</sup> — 5,96 × 10<sup>128</sup>.</li>
+        <li>На горизонте событий I<sub>M</sub> → ∞, что соответствует переходу материи в информацию.</li>
+        <li>Формализация Z<sub>op</sub> позволяет использовать модель для различных систем и состояний.</li>
+    </ol>
+
+    <!-- 11 -->
+    <h2>11. Литература</h2>
+    <ol>
+        <li>Tsepelev, P.I. (2026). Information potential of boson condensates: the Tsepelev equation (ZIPE-1.0). PORTALUS.RU, №1785441629.</li>
+        <li>Hawking, S.W. (1975). Particle creation by black holes. Communications in Mathematical Physics, 43(3), 199-220.</li>
+        <li>Bekenstein, J.D. (1973). Black holes and entropy. Physical Review D, 7(8), 2333.</li>
+    </ol>
+
+    <!-- КЛЮЧЕВЫЕ СЛОВА -->
+    <div class="keywords">
+        <strong>Ключевые слова:</strong><br>
+        <span>ZIPE-1.0</span>
+        <span>Z<sub>op</sub></span>
+        <span>чёрная дыра</span>
+        <span>информационный потенциал</span>
+        <span>энтропия</span>
+        <span>квантовый канал</span>
+    </div>
+
+    <div class="quote">♦ От физики материи — к физике смысла ♦</div>
+
+    <!-- ЛИЦЕНЗИЯ -->
+    <div class="license-box">
+        <p style="font-weight: bold; color: #ffd700;">© Цепелев П.И., 2026. Все права защищены.</p>
+        <p>Лицензия: <a href="https://creativecommons.org/licenses/by/4.0/deed.ru" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0)</a></p>
+        <p style="font-size: 0.9rem; color: #8899aa;">Вы можете свободно делиться и адаптировать этот материал при обязательном указании авторства.</p>
+    </div>
+
+    <div class="footer">
+        <a href="https://caper8585.github.io" target="_blank">caper8585.github.io</a>
+    </div>
+
+    <div class="stars" style="margin-top: 20px;">✦ ✦ ✦ ✦ ✦</div>
+
+</div>
+</body>
+</html>
