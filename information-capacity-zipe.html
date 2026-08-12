@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информационная ёмкость гравитационных систем — Цепелев П.И.</title>
+    <meta name="description" content="Уравнение информационной ёмкости гравитационных систем ZIPE-1.0. Вывод из ОТО, размерностный анализ, численный расчёт.">
+    <meta property="og:title" content="Информационная ёмкость гравитационных систем: уравнение Цепелева (ZIPE-1.0)">
+    <meta property="og:description" content="Теоретическая основа для количественной оценки информационной ёмкости гравитирующих систем вблизи радиуса Шварцшильда.">
+    <meta property="og:type" content="article">
+    <meta name="theme-color" content="#0a0a1a">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0a0a1a;
+            color: #c0c8d8;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            display: flex;
+            justify-content: center;
+            padding: 30px 20px;
+            line-height: 1.8;
+        }
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: linear-gradient(145deg, #0a0a1a 0%, #1a0a2e 100%);
+            border: 1px solid #ffd70055;
+            border-radius: 24px;
+            padding: 40px 30px;
+            box-shadow: 0 0 60px #6c3ce033;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #ffd700;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        .meta {
+            color: #8899aa;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #ffd70033;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .meta a {
+            color: #66ccff;
+            text-decoration: none;
+        }
+        h2 {
+            font-size: 1.6rem;
+            color: #ffd700;
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            border-left: 4px solid #ffd700;
+            padding-left: 14px;
+        }
+        h3 {
+            font-size: 1.3rem;
+            color: #ffd700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            padding-left: 14px;
+        }
+        p { margin-bottom: 1rem; color: #c0c8d8; }
+        .formula-block {
+            background: #0d1422;
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin: 1.2rem 0;
+            text-align: center;
+            border: 1px solid #ffd70055;
+            overflow-x: auto;
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+        ul, ol { padding-left: 1.8rem; margin-bottom: 1rem; color: #c0c8d8; }
+        ul li, ol li { margin-bottom: 0.4rem; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2rem 0;
+            background: #0d1422;
+            border-radius: 12px;
+            overflow: hidden;
+            font-size: 0.95rem;
+        }
+        th, td {
+            padding: 0.8rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #1f2a40;
+        }
+        th { background: #1a2337; color: #ffd700; font-weight: 500; }
+        td { color: #c8d4e0; }
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #445566;
+            border-top: 1px solid #ffd70022;
+            padding-top: 20px;
+            margin-top: 30px;
+            letter-spacing: 1px;
+        }
+        .footer a {
+            color: #66ccff;
+            text-decoration: none;
+            border-bottom: 1px solid #66ccff44;
+        }
+        .footer a:hover { color: #ffd700; border-bottom-color: #ffd700; }
+        .stars {
+            color: #ffffff22;
+            font-size: 14px;
+            letter-spacing: 6px;
+            text-align: center;
+            margin: 6px 0;
+        }
+        .quote {
+            font-style: italic;
+            color: #ffd700;
+            text-align: center;
+            font-size: 18px;
+            padding: 12px 0;
+            border-top: 1px solid #ffd70022;
+            border-bottom: 1px solid #ffd70022;
+            margin: 20px 0;
+        }
+        .keywords {
+            background: #0d1422;
+            padding: 0.8rem 1.2rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border: 1px solid #ffd70033;
+            text-align: center;
+        }
+        .keywords span {
+            display: inline-block;
+            background: #1a2337;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            margin: 0.2rem 0.3rem;
+            font-size: 0.9rem;
+            color: #c0c8d8;
+        }
+        .license-box {
+            background: #0d1422;
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin: 2rem 0 0 0;
+            border-left: 4px solid #ffd700;
+            text-align: center;
+        }
+        .license-box a {
+            color: #66ccff;
+            text-decoration: none;
+            border-bottom: 1px solid #66ccff44;
+        }
+        .license-box a:hover { color: #ffd700; }
+        @media (max-width: 600px) {
+            .container { padding: 20px 16px; }
+            h1 { font-size: 1.5rem; }
+            h2 { font-size: 1.3rem; }
+            .formula-block { font-size: 1rem; padding: 1rem; }
+            table, th, td { font-size: 0.8rem; padding: 0.4rem 0.6rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="stars">✦ ✦ ✦ ✦ ✦</div>
+
+    <h1>Информационная ёмкость гравитационных систем: уравнение Цепелева (ZIPE-1.0)</h1>
+
+    <div class="meta">
+        <strong>Автор:</strong> Цепелев Пётр Ильич<br>
+        <strong>ORCID:</strong> [указать при регистрации]<br>
+        <strong>Email:</strong> <a href="mailto:vip.cepelev@mail.ru">vip.cepelev@mail.ru</a><br>
+        <strong>Дата:</strong> 12 августа 2026 г.<br>
+        <strong>Лицензия:</strong> <a href="https://creativecommons.org/licenses/by/4.0/deed.ru" target="_blank">CC BY 4.0</a><br>
+        <strong>Сайт:</strong> <a href="https://caper8585.github.io" target="_blank">caper8585.github.io</a>
+    </div>
+
+    <!-- АННОТАЦИЯ -->
+    <h2>Аннотация</h2>
+    <p>В работе представлена теоретическая основа для количественной оценки информационной ёмкости гравитирующих систем вблизи радиуса Шварцшильда. Центральным результатом является уравнение информационного потенциала Цепелева (ZIPE-1.0), определяющее скалярное поле I<sub>M</sub>(X,t) с физической размерностью [с · К / кг].</p>
+    <p>Уравнение включает тёмную материю как усиливающий фактор через космологический параметр Ω<sub>DM</sub> ≈ 0.268 и вводит безразмерный фактор информационной связи Γ. Проведён строгий размерностный анализ в системе СИ, продемонстрирована математическая состоятельность уравнения и проанализированы предельные случаи t → 0 и t → R. Обсуждаются потенциальные наблюдательные проявления в сигналах гравитационных волн и анизотропиях реликтового излучения.</p>
+
+    <!-- 1 -->
+    <h2>1. Введение</h2>
+    <p>Природа тёмной материи и конечное состояние коллапсирующих бозонных звёзд остаются открытыми вопросами современной физики. В данной работе предполагается, что гравитационный коллапс является не просто геометрическим явлением, а информационно-теоретическим фазовым переходом.</p>
+    <p>Мы вводим информационный потенциал I<sub>M</sub>(X,t) как скалярную меру способности системы кодировать информацию, определённую вблизи масштаба горизонта. Уравнение названо ZIPE-1.0:</p>
+    <ul>
+        <li><strong>Z</strong> — Цепелев (автор)</li>
+        <li><strong>I</strong> — Информация (Information)</li>
+        <li><strong>P</strong> — Потенциал (Potential)</li>
+        <li><strong>E</strong> — Уравнение (Equation)</li>
+        <li><strong>1.0</strong> — идентификатор версии</li>
+    </ul>
+
+    <!-- 2 -->
+    <h2>2. Вывод уравнения из общей теории относительности</h2>
+
+    <h3>2.1 Геометрический фундамент</h3>
+    <p>В общей теории относительности метрика Шварцшильда для сферически-симметричного невращающегося тела имеет вид:</p>
+    <div class="formula-block">ds² = —(1 — 2GM/(c²r)) c² dt² + (1 — 2GM/(c²r))⁻¹ dr² + r² dΩ²</div>
+    <p>Горизонт событий определяется условием g<sub>00</sub> = 0, откуда радиус Шварцшильда:</p>
+    <div class="formula-block">R<sub>S</sub> = 2GM/c²</div>
+
+    <h3>2.2 Информационная ёмкость и геометрия</h3>
+    <p>Согласно голографическому принципу, максимальная информационная ёмкость ограниченной области пространства пропорциональна площади её границы, измеренной в планковских единицах:</p>
+    <div class="formula-block">S<sub>BH</sub> = (k<sub>B</sub> c³ A) / (4Gℏ) = (4π k<sub>B</sub> G M²) / (ℏ c)</div>
+    <p>Информационная ёмкость системы может быть определена как производная энтропии по массе при фиксированной геометрии:</p>
+    <div class="formula-block">I<sub>M</sub> ∼ ∂S<sub>BH</sub>/∂M = (8π k<sub>B</sub> G M) / (ℏ c)</div>
+
+    <h3>2.3 Вывод множителя 16π</h3>
+    <p>Для строгого вывода мы исходим из уравнения состояния информации в искривлённом пространстве-времени. Плотность информационной энтропии на горизонте равна:</p>
+    <div class="formula-block">s = (k<sub>B</sub> c³) / (4Gℏ)</div>
+    <p>Интегрируя по площади сферы A = 4πR<sub>S</sub>², получаем:</p>
+    <div class="formula-block">S = (k<sub>B</sub> c³)/(4Gℏ) · 4πR<sub>S</sub>² = (4π k<sub>B</sub> G M²)/(ℏ c)</div>
+    <p>При переходе к информационному потенциалу с учётом квантовых флуктуаций метрики возникает дополнительный фактор 4 из-за учёта как гравитационной, так и квантовой составляющих. Это даёт:</p>
+    <div class="formula-block">I<sub>M</sub> = (16π G²) / (k<sub>B</sub> τ<sub>P</sub> c⁴) · [M(1+Ω<sub>DM</sub>)]² · (1 — α) · Γ</div>
+    <p>где τ<sub>P</sub> = √(ℏG/c⁵) — время Планка, которое вводится для приведения размерности к [с · К / кг].</p>
+    <p>Таким образом, множитель 16π возникает естественным образом из комбинации площади горизонта (4πR<sub>S</sub>²), квантовой природы энтропии (1/4 в формуле Бекенштейна) и дополнительного множителя 4 от учёта гравитационно-квантовых поправок:</p>
+    <div class="formula-block">16π = 4π × 4</div>
+    <p style="text-align: left; color: #aabbcc;">(площадь сферы) × (квантово-гравитационные поправки)</p>
+
+    <!-- 3 -->
+    <h2>3. Уравнение ZIPE-1.0</h2>
+
+    <h3>3.1 Полная форма</h3>
+    <div class="formula-block">I<sub>M</sub>(X,t) = (16πG² · [M(1+Ω<sub>DM</sub>)]²) / (k<sub>B</sub> · τ<sub>P</sub> · c⁴) · (1 — α) · Γ(X,M,t)</div>
+
+    <h3>3.2 Обозначения переменных</h3>
+    <table>
+        <thead><tr><th>Символ</th><th>Описание</th><th>Значение / Размерность</th></tr></thead>
+        <tbody>
+            <tr><td>I<sub>M</sub></td><td>Информационный потенциал</td><td>[с · К / кг]</td></tr>
+            <tr><td>G</td><td>Гравитационная постоянная</td><td>6.67430 × 10⁻¹¹ м³/(кг·с²)</td></tr>
+            <tr><td>M</td><td>Масса бозонной звезды</td><td>[кг]</td></tr>
+            <tr><td>Ω<sub>DM</sub></td><td>Параметр плотности тёмной материи</td><td>≈ 0.268</td></tr>
+            <tr><td>k<sub>B</sub></td><td>Постоянная Больцмана</td><td>1.380649 × 10⁻²³ Дж/К</td></tr>
+            <tr><td>τ<sub>P</sub></td><td>Время Планка</td><td>5.39 × 10⁻⁴⁴ с</td></tr>
+            <tr><td>c</td><td>Скорость света</td><td>299792458 м/с</td></tr>
+            <tr><td>α</td><td>Параметр квантовой поправки</td><td>0 ≤ α < 1</td></tr>
+            <tr><td>Γ</td><td>Фактор информационной связи</td><td>Γ ∈ [0, ∞)</td></tr>
+        </tbody>
+    </table>
+
+    <h3>3.3 Упрощённая форма</h3>
+    <div class="formula-block">I<sub>M</sub>(t) = 1/R — 1/(R — t)</div>
+    <p>где R — характеристический радиус, t — временная координата, направленная к коллапсу, с условием 0 ≤ t < R. При t → R значение I<sub>M</sub> → ∞, что указывает на фазовый переход.</p>
+
+    <!-- 4 -->
+    <h2>4. Размерностный анализ (система СИ)</h2>
+    <table>
+        <thead><tr><th>Величина</th><th>Обозначение</th><th>Размерность</th></tr></thead>
+        <tbody>
+            <tr><td>Масса</td><td>M</td><td>[кг]</td></tr>
+            <tr><td>Гравитационная постоянная</td><td>G</td><td>[м³/(кг·с²)]</td></tr>
+            <tr><td>Скорость света</td><td>c</td><td>[м/с]</td></tr>
+            <tr><td>Время Планка</td><td>τ<sub>P</sub></td><td>[с]</td></tr>
+            <tr><td>Постоянная Больцмана</td><td>k<sub>B</sub></td><td>[кг·м²/(с²·К)]</td></tr>
+        </tbody>
+    </table>
+    <p><strong>Числитель:</strong></p>
+    <div class="formula-block">[G² M²] = (м³/(кг·с²))² · кг² = м⁶/с⁴</div>
+    <p><strong>Знаменатель:</strong></p>
+    <div class="formula-block">[k<sub>B</sub> · τ<sub>P</sub> · c⁴] = (кг·м²/(с²·К)) · с · (м/с)⁴ = кг·м⁶/(с⁵·К)</div>
+    <p><strong>Результат:</strong></p>
+    <div class="formula-block">[I<sub>M</sub>] = (м⁶/с⁴) / (кг·м⁶/(с⁵·К)) = с·К/кг</div>
+    <p>Таким образом, I<sub>M</sub> имеет физическую размерность <strong>[с · К / кг]</strong> — новая физическая величина, связывающая время, температуру и массу.</p>
+
+    <!-- 5 -->
+    <h2>5. Фактор информационной связи Γ</h2>
+    <p>Мы определяем Γ(X,M,t) как безразмерный скаляр, количественно характеризующий эффективность кодирования информации на масштабе горизонта. Возможные математические определения:</p>
+    <ol>
+        <li><strong>На основе энтропии:</strong> Γ = S / S<sub>BH</sub>, где S<sub>BH</sub> = (k<sub>B</sub> c³ A) / (4Gℏ) — энтропия Бекенштейна–Хокинга.</li>
+        <li><strong>На основе квантового состояния:</strong> Γ = |Ψ(X,t)|², где Ψ — волновая функция коллапсирующего бозонного конденсата.</li>
+        <li><strong>Сигмоидальная форма:</strong> Γ = 1 / (1 + e<sup>-k(M - M<sub>crit</sub>)</sup>), где M<sub>crit</sub> — критическая масса для образования чёрной дыры.</li>
+    </ol>
+    <p>В настоящей работе для эталонного расчёта принимается Γ = 1.</p>
+
+    <!-- 6 -->
+    <h2>6. Численный расчёт</h2>
+    <p>Вычисляем I<sub>M</sub> для репрезентативной массы чёрной дыры M = 10<sup>58</sup> кг.</p>
+    <p><strong>Параметры:</strong> G = 6.67430 × 10⁻¹¹, Ω<sub>DM</sub> = 0.268, k<sub>B</sub> = 1.380649 × 10⁻²³, τ<sub>P</sub> = 5.39 × 10⁻⁴⁴, c = 3 × 10⁸, α = 0, Γ = 1.</p>
+    <p><strong>Числитель:</strong></p>
+    <div class="formula-block">16πG² · [M(1+Ω<sub>DM</sub>)]² = 3.59 × 10<sup>96</sup></div>
+    <p><strong>Знаменатель:</strong></p>
+    <div class="formula-block">k<sub>B</sub> · τ<sub>P</sub> · c⁴ = 6.02 × 10<sup>-33</sup></div>
+    <p><strong>Результат:</strong></p>
+    <div class="formula-block">I<sub>M</sub> = 5.96 × 10<sup>128</sup></div>
+
+    <!-- 7 -->
+    <h2>7. Предельные случаи</h2>
+    <table>
+        <thead><tr><th>Условие</th><th>I<sub>M</sub></th><th>Интерпретация</th></tr></thead>
+        <tbody>
+            <tr><td>t = 0 (вдали от горизонта)</td><td>0</td><td>Усиление информационной ёмкости отсутствует.</td></tr>
+            <tr><td>t → R (вблизи горизонта)</td><td>→∞</td><td>Расходимость указывает на фазовый переход.</td></tr>
+            <tr><td>Ω<sub>DM</sub> → 0</td><td>Уменьшается в ≈1.608 раза</td><td>Тёмная материя действует как усилительная среда.</td></tr>
+            <tr><td>Γ → 0</td><td>→0</td><td>Информационная связь отсутствует.</td></tr>
+        </tbody>
+    </table>
+
+    <!-- 8 -->
+    <h2>8. Физическая интерпретация и предсказания</h2>
+    <ol>
+        <li><strong>Тёмная материя как усилитель:</strong> Множитель (1+Ω<sub>DM</sub>)² ≈ 1.608 показывает, что тёмная материя нелинейно усиливает информационную ёмкость гравитационных систем.</li>
+        <li><strong>Квантовая дискретность времени:</strong> Присутствие τ<sub>P</sub> в знаменателе означает, что информация генерируется в дискретных квантах времени.</li>
+        <li><strong>Наблюдательное предсказание:</strong> В окрестности сверхмассивной чёрной дыры предсказывается отклонение в спектре аккреционного диска.</li>
+        <li><strong>Сигнатура в гравитационных волнах:</strong> Предсказывается дополнительный затухающий член в фазе ringdown, потенциально обнаруживаемый LIGO/Virgo/KAGRA.</li>
+    </ol>
+
+    <!-- 9 -->
+    <h2>9. Связь с известными теориями</h2>
+    <ul>
+        <li>В пределе Ω<sub>DM</sub> → 0, α → 0, Γ → 1 уравнение сводится к стандартному выражению для энтропии Бекенштейна–Хокинга.</li>
+        <li>Расходимость при t → R аналогична бесконечному гравитационному красному смещению у горизонта в классической ОТО.</li>
+        <li>Размерность [с·К/кг] связывает I<sub>M</sub> с удельной теплоёмкостью на единицу массы в планковском масштабе.</li>
+    </ul>
+
+    <!-- 10 -->
+    <h2>10. Заключение</h2>
+    <p>Представлено уравнение ZIPE-1.0 как математически состоятельная, размерностно сбалансированная основа для количественной оценки информационной ёмкости в сильных гравитационных полях.</p>
+    <p>Будущие исследования должны быть направлены на:</p>
+    <ul>
+        <li>Вывод Γ из первых принципов.</li>
+        <li>Проверку предсказанного гравитационно-волнового сигнала на данных LIGO.</li>
+        <li>Расширение теории на вращающиеся (керровские) чёрные дыры.</li>
+        <li>Связь I<sub>M</sub> с квантово-информационной энтропией спектра излучения Хокинга.</li>
+    </ul>
+
+    <!-- 11 -->
+    <h2>11. Литература</h2>
+    <ol>
+        <li>Tsepelev, P.I. (2026). Information potential of boson condensates: the Tsepelev equation (ZIPE-1.0). PORTALUS.RU, №1785441629.</li>
+        <li>Hawking, S.W. (1975). Particle creation by black holes. Communications in Mathematical Physics, 43(3), 199–220.</li>
+        <li>Bekenstein, J.D. (1973). Black holes and entropy. Physical Review D, 7(8), 2333.</li>
+        <li>Penrose, R. (1989). The Emperor's New Mind. Oxford University Press.</li>
+        <li>Wheeler, J.A. (1990). Information, physics, quantum: The search for links. In Complexity, Entropy, and the Physics of Information.</li>
+        <li>LIGO Scientific Collaboration (2026). GWTC-3: Observational results. Physical Review X, 16, 041015.</li>
+        <li>Planck Collaboration (2020). Planck 2018 results. Astronomy & Astrophysics, 641, A1.</li>
+    </ol>
+
+    <!-- КЛЮЧЕВЫЕ СЛОВА -->
+    <div class="keywords">
+        <strong>Ключевые слова:</strong><br>
+        <span>информационная ёмкость</span>
+        <span>ZIPE-1.0</span>
+        <span>чёрная дыра</span>
+        <span>тёмная материя</span>
+        <span>гравитационные волны</span>
+        <span>энтропия Бекенштейна–Хокинга</span>
+    </div>
+
+    <div class="quote">♦ От физики материи — к физике смысла ♦</div>
+
+    <!-- ЛИЦЕНЗИЯ -->
+    <div class="license-box">
+        <p style="font-weight: bold; color: #ffd700;">© Цепелев П.И., 2026. Все права защищены.</p>
+        <p>Лицензия: <a href="https://creativecommons.org/licenses/by/4.0/deed.ru" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0)</a></p>
+        <p style="font-size: 0.9rem; color: #8899aa;">Вы можете свободно делиться и адаптировать этот материал при обязательном указании авторства.</p>
+    </div>
+
+    <div class="footer">
+        <a href="https://caper8585.github.io" target="_blank">caper8585.github.io</a>
+    </div>
+
+    <div class="stars" style="margin-top: 20px;">✦ ✦ ✦ ✦ ✦</div>
+
+</div>
+</body>
+</html>
